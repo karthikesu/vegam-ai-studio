@@ -1,0 +1,132 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-display: "Syne", sans-serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-glow: var(--accent-glow);
+  --color-gold: var(--gold);
+  --color-jade: var(--jade);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.04 0 0);
+  --foreground: oklch(0.985 0 0);
+  --surface: oklch(0.08 0 0);
+  --surface-elevated: oklch(0.11 0 0);
+  --card: oklch(0.06 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.06 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.04 0 0);
+  --secondary: oklch(0.14 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.14 0 0);
+  --muted-foreground: oklch(0.58 0.01 0);
+  --accent: oklch(0.68 0.22 38);
+  --accent-foreground: oklch(0.985 0 0);
+  --accent-glow: oklch(0.78 0.19 50);
+  --gold: oklch(0.82 0.13 85);
+  --jade: oklch(0.78 0.16 165);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0 0);
+  --border: oklch(1 0 0 / 8%);
+  --border-strong: oklch(1 0 0 / 18%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.68 0.22 38);
+  --gradient-ember: linear-gradient(135deg, oklch(0.68 0.22 38), oklch(0.78 0.19 50));
+  --gradient-mesh:
+    radial-gradient(at 18% 8%, oklch(0.68 0.22 38 / 0.16) 0px, transparent 50%),
+    radial-gradient(at 82% 30%, oklch(0.55 0.18 280 / 0.10) 0px, transparent 50%),
+    radial-gradient(at 50% 95%, oklch(0.68 0.22 38 / 0.10) 0px, transparent 60%);
+  --shadow-ember: 0 20px 80px -20px oklch(0.68 0.22 38 / 0.45);
+  --shadow-soft: 0 30px 80px -30px oklch(0 0 0 / 0.7);
+}
+
+.dark {
+  --background: oklch(0.04 0 0);
+  --foreground: oklch(0.985 0 0);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  html { scroll-behavior: smooth; }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); letter-spacing: -0.02em; }
+  .text-balance { text-wrap: balance; }
+  .bg-gradient-ember { background: var(--gradient-ember); }
+  .bg-mesh { background: var(--gradient-mesh); }
+  .text-stroke {
+    -webkit-text-stroke: 1px oklch(1 0 0 / 0.3);
+    color: transparent;
+  }
+  .shadow-ember { box-shadow: var(--shadow-ember); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .glass {
+    background: oklch(1 0 0 / 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .animate-marquee { animation: marquee 35s linear infinite; }
+
+  @keyframes scroll-arrow {
+    0%, 100% { opacity: 0.4; transform: scaleY(0.6); transform-origin: top; }
+    50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+  }
+  .animate-scroll-arrow { animation: scroll-arrow 2s ease infinite; }
+
+  @keyframes ember-glow {
+    0%, 100% { box-shadow: 0 0 24px oklch(0.68 0.22 38 / 0.25); }
+    50% { box-shadow: 0 0 64px oklch(0.68 0.22 38 / 0.5); }
+  }
+  .animate-ember-glow { animation: ember-glow 3.5s ease-in-out infinite; }
+
+  @keyframes status-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .animate-status-pulse { animation: status-pulse 2s ease infinite; }
+}
