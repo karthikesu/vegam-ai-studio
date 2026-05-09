@@ -142,8 +142,29 @@ function VegamLanding() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+      {/* SVG goo filter for liquid effect */}
+      <svg className="pointer-events-none fixed h-0 w-0" aria-hidden>
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="22" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+
       {/* Ambient mesh background */}
       <div className="pointer-events-none fixed inset-0 z-0 bg-mesh" />
+
+      {/* Liquid ember blobs */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-60">
+        <div className="goo absolute inset-0">
+          <div className="animate-blob-1 absolute left-[8%] top-[18%] h-[380px] w-[380px] rounded-full" style={{ background: "radial-gradient(circle, oklch(0.68 0.22 38 / 0.55), transparent 70%)" }} />
+          <div className="animate-blob-2 absolute right-[6%] top-[42%] h-[440px] w-[440px] rounded-full" style={{ background: "radial-gradient(circle, oklch(0.78 0.19 50 / 0.45), transparent 70%)" }} />
+          <div className="animate-blob-3 absolute left-[32%] bottom-[8%] h-[360px] w-[360px] rounded-full" style={{ background: "radial-gradient(circle, oklch(0.55 0.18 280 / 0.35), transparent 70%)" }} />
+        </div>
+      </div>
+
       <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
 
       {/* Custom cursor */}
