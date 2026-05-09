@@ -1,6 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { HeroOrb } from "@/components/HeroOrb";
+import laptopImg from "@/assets/showcase-laptop.jpg";
+import phoneImg from "@/assets/showcase-phone.jpg";
+import tabletImg from "@/assets/showcase-tablet.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,9 +47,9 @@ const features = [
 const marquee = ["⚡ AI Website Builder", "🪔 Uyir AI Memorial", "💬 Sakthi WhatsApp Bot", "🌍 Global Payments", "🎓 Student Kalvi Tier", "🇲🇾 Made in Malaysia", "🔱 Murugan Vazhga"];
 
 const showcase = [
-  { icon: "🪔", brand: "Uyir AI", sub: "Tamil Memorial Platform", tags: ["Claude AI", "ElevenLabs", "D-ID"], badge: "World First", title: "Uyir AI Memorial", desc: "Preserve your elders forever. Upload their voice, photo, stories. Family talks to their AI — in Tamil, in their actual voice. Built for 77 million Tamils worldwide.", status: "Live Demo Available", cta: "Try it →" },
-  { icon: "🏨", brand: "Irama HK", sub: "Hotel Management System", tags: ["Real-time", "Supabase", "Live"], badge: "Running Live", title: "Irama Housekeeping System", desc: "Full hotel housekeeping management. Room status tracking, staff assignments, real-time updates. Currently deployed and running at Irama Hotel, Kuala Lumpur.", status: "Deployed at Irama KL", cta: "View Live →" },
-  { icon: "📋", brand: "Irama Kiosk", sub: "Cafeteria Feedback System", tags: ["Tablet UI", "Analytics", "QR Codes"], badge: "Running Live", title: "Cafeteria Feedback Kiosk", desc: "Touch-screen feedback collection for Irama Hotel cafeteria. Real-time analytics dashboard, QR code sharing, GM reports. Live at Irama KL.", status: "Deployed at Irama KL", cta: "View Live →" },
+  { img: phoneImg, brand: "Uyir AI", sub: "Tamil Memorial Platform", tags: ["Claude AI", "ElevenLabs", "D-ID"], badge: "World First", title: "Uyir AI Memorial", desc: "Preserve your elders forever. Upload their voice, photo, stories. Family talks to their AI — in Tamil, in their actual voice. Built for 77 million Tamils worldwide.", status: "Live Demo Available", cta: "Try it →" },
+  { img: laptopImg, brand: "Irama HK", sub: "Hotel Management System", tags: ["Real-time", "Supabase", "Live"], badge: "Running Live", title: "Irama Housekeeping System", desc: "Full hotel housekeeping management. Room status tracking, staff assignments, real-time updates. Currently deployed and running at Irama Hotel, Kuala Lumpur.", status: "Deployed at Irama KL", cta: "View Live →" },
+  { img: tabletImg, brand: "Irama Kiosk", sub: "Cafeteria Feedback System", tags: ["Tablet UI", "Analytics", "QR Codes"], badge: "Running Live", title: "Cafeteria Feedback Kiosk", desc: "Touch-screen feedback collection for Irama Hotel cafeteria. Real-time analytics dashboard, QR code sharing, GM reports. Live at Irama KL.", status: "Deployed at Irama KL", cta: "View Live →" },
 ];
 
 const plans = [
@@ -109,11 +113,29 @@ function VegamLanding() {
     hovers.forEach((h) => { h.addEventListener("mouseenter", enter); h.addEventListener("mouseleave", leave); });
 
     window.addEventListener("mousemove", onMove);
+
+    // Tilt-on-hover for cards
+    const tiltEls = document.querySelectorAll<HTMLElement>(".tilt");
+    const tiltHandlers: Array<{ el: HTMLElement; m: (e: MouseEvent) => void; l: () => void }> = [];
+    tiltEls.forEach((el) => {
+      const m = (e: MouseEvent) => {
+        const r = el.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        gsap.to(el, { rotateY: px * 8, rotateX: -py * 8, transformPerspective: 1000, duration: 0.4, ease: "power2.out" });
+      };
+      const l = () => { gsap.to(el, { rotateY: 0, rotateX: 0, duration: 0.6, ease: "power2.out" }); };
+      el.addEventListener("mousemove", m);
+      el.addEventListener("mouseleave", l);
+      tiltHandlers.push({ el, m, l });
+    });
+
     return () => {
       io.disconnect();
       cancelAnimationFrame(raf);
       window.removeEventListener("mousemove", onMove);
       hovers.forEach((h) => { h.removeEventListener("mouseenter", enter); h.removeEventListener("mouseleave", leave); });
+      tiltHandlers.forEach(({ el, m, l }) => { el.removeEventListener("mousemove", m); el.removeEventListener("mouseleave", l); });
       document.body.style.cursor = "";
     };
   }, []);
@@ -141,6 +163,14 @@ function VegamLanding() {
 
       {/* HERO */}
       <section id="top" className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center">
+        {/* 3D crystal behind text */}
+        <div className="pointer-events-none absolute inset-0 z-0 opacity-90">
+          <HeroOrb />
+        </div>
+        {/* radial dim mask so text reads */}
+        <div className="pointer-events-none absolute inset-0 z-[1]" style={{ background: "radial-gradient(ellipse at center, transparent 0%, oklch(0.04 0 0 / 0.5) 50%, oklch(0.04 0 0 / 0.85) 100%)" }} />
+
+        <div className="relative z-10 flex flex-col items-center">
         <div className="hero-label flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-muted-foreground opacity-0">
           <span className="h-px w-8 bg-muted-foreground" />
           வேகம் · vegam.my · AI Website Builder
@@ -163,6 +193,7 @@ function VegamLanding() {
         <div className="hero-ctas mt-12 flex flex-wrap items-center justify-center gap-3 opacity-0">
           <button className="rounded-full bg-foreground px-9 py-4 text-[13px] font-medium tracking-wide text-background transition-all hover:scale-[1.04] hover:bg-accent hover:text-accent-foreground">Start Building Free</button>
           <button className="rounded-full border border-border-strong px-9 py-4 text-[13px] tracking-wide transition-all hover:scale-[1.04] hover:border-foreground/60">See Live Demo</button>
+        </div>
         </div>
 
         <div className="scroll-hint absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2.5 opacity-0">
@@ -268,22 +299,23 @@ function VegamLanding() {
 
           <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
             {showcase.map((s) => (
-              <div key={s.title} className="rv group cursor-hover relative overflow-hidden rounded-2xl border border-border bg-surface transition-all hover:border-border-strong hover:-translate-y-2" style={{opacity:0,transform:"translateY(40px)"}}>
-                <div className="border-b border-border bg-gradient-to-br from-accent/10 to-transparent p-7">
-                  <div className="text-3xl">{s.icon}</div>
-                  <div className="mt-4 font-display text-base font-bold">{s.brand}</div>
-                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{s.sub}</div>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
+              <div key={s.title} className="rv tilt group cursor-hover relative overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-border-strong" style={{opacity:0,transform:"translateY(40px)", transformStyle:"preserve-3d"}}>
+                <div className="relative aspect-[4/3] overflow-hidden border-b border-border bg-black">
+                  <img src={s.img} alt={s.title} loading="lazy" width={1024} height={768} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
+                  <div className="absolute left-5 top-5 rounded-full border border-border-strong bg-background/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-accent backdrop-blur">{s.badge}</div>
+                </div>
+                <div className="p-7">
+                  <div className="font-display text-base font-bold">{s.brand}</div>
+                  <div className="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">{s.sub}</div>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
                     {s.tags.map((t) => (
                       <span key={t} className="rounded-full border border-border px-2.5 py-1 text-[10px] tracking-wide text-foreground/60">{t}</span>
                     ))}
                   </div>
-                </div>
-                <div className="p-7">
-                  <div className="text-[10px] uppercase tracking-[0.25em] text-accent">{s.badge}</div>
-                  <h3 className="mt-2 font-display text-xl font-bold">{s.title}</h3>
-                  <p className="mt-3 text-[13px] font-light leading-[1.7] text-muted-foreground">{s.desc}</p>
-                  <div className="mt-6 flex items-center justify-between border-t border-border pt-4 text-[12px]">
+                  <h3 className="mt-5 font-display text-xl font-bold">{s.title}</h3>
+                  <p className="mt-2 text-[13px] font-light leading-[1.7] text-muted-foreground">{s.desc}</p>
+                  <div className="mt-5 flex items-center justify-between border-t border-border pt-4 text-[12px]">
                     <span className="flex items-center gap-2 text-jade"><span className="animate-status-pulse h-1.5 w-1.5 rounded-full bg-jade" />{s.status}</span>
                     <span className="text-foreground/60 transition group-hover:text-accent">{s.cta}</span>
                   </div>
