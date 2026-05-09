@@ -1,26 +1,387 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "VEGAM — Build Fast. Grow Global." },
+      {
+        name: "description",
+        content:
+          "AI website builder for Malaysia and the global Tamil diaspora. Tell our AI your idea — watch your website build itself live in 60 seconds.",
+      },
+      { property: "og:title", content: "VEGAM — Build Fast. Grow Global." },
+      {
+        property: "og:description",
+        content:
+          "Premium AI website builder. Made in Malaysia. For the world.",
+      },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap",
+      },
+    ],
+  }),
+  component: VegamLanding,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+const features = [
+  { n: "01", icon: "🤖", title: "AI Website Builder", desc: "Describe your business. Watch a premium website generate live. No code. No designers. Zero learning curve." },
+  { n: "02", icon: "⚡", title: "Live Preview", desc: "Every change updates instantly as you speak to the AI. What you see is exactly what your customers see." },
+  { n: "03", icon: "💬", title: "Sakthi AI Chatbot", desc: "Every site gets its own AI assistant. Tamil. Malay. English. Converts visitors to buyers 24/7 while you sleep." },
+  { n: "04", icon: "🌍", title: "Global Payments", desc: "DuitNow + FPX for Malaysia. Stripe, Klarna, Afterpay for the world. Every currency. Every method." },
+  { n: "05", icon: "🎓", title: "Student Kalvi Tier", desc: "70% off with valid student ID. All Malaysian universities accepted. Your future starts at student prices." },
+  { n: "06", icon: "🪔", title: "Uyir AI Memorial", desc: "The world's first Tamil soul preservation platform. Upload voice, photo, stories. Family talks to them forever." },
+];
+
+const marquee = ["⚡ AI Website Builder", "🪔 Uyir AI Memorial", "💬 Sakthi WhatsApp Bot", "🌍 Global Payments", "🎓 Student Kalvi Tier", "🇲🇾 Made in Malaysia", "🔱 Murugan Vazhga"];
+
+const showcase = [
+  { icon: "🪔", brand: "Uyir AI", sub: "Tamil Memorial Platform", tags: ["Claude AI", "ElevenLabs", "D-ID"], badge: "World First", title: "Uyir AI Memorial", desc: "Preserve your elders forever. Upload their voice, photo, stories. Family talks to their AI — in Tamil, in their actual voice. Built for 77 million Tamils worldwide.", status: "Live Demo Available", cta: "Try it →" },
+  { icon: "🏨", brand: "Irama HK", sub: "Hotel Management System", tags: ["Real-time", "Supabase", "Live"], badge: "Running Live", title: "Irama Housekeeping System", desc: "Full hotel housekeeping management. Room status tracking, staff assignments, real-time updates. Currently deployed and running at Irama Hotel, Kuala Lumpur.", status: "Deployed at Irama KL", cta: "View Live →" },
+  { icon: "📋", brand: "Irama Kiosk", sub: "Cafeteria Feedback System", tags: ["Tablet UI", "Analytics", "QR Codes"], badge: "Running Live", title: "Cafeteria Feedback Kiosk", desc: "Touch-screen feedback collection for Irama Hotel cafeteria. Real-time analytics dashboard, QR code sharing, GM reports. Live at Irama KL.", status: "Deployed at Irama KL", cta: "View Live →" },
+];
+
+const plans = [
+  { tier: "Starter", name: "VIDHAI", tamil: "விதை · The Seed", price: "RM 99", per: "per month", feats: [["1 Website", "AI Builder Basic"], ["5 Pages", "vegam.my Subdomain"], ["Sakthi AI Chatbot", "FPX / DuitNow"]], cta: "Get Started", style: "ghost" as const },
+  { tier: "Most Popular", name: "VĒR", tamil: "வேர் · The Root", price: "RM 299", per: "per month", feats: [["3 Websites", "AI Builder Full"], ["Unlimited Pages", "Custom Domain"], ["Sakthi WhatsApp Bot", "GrabPay + Atome"]], cta: "Get Started", style: "solid" as const, featured: true },
+  { tier: "Business", name: "MARAM", tamil: "மரம் · The Tree", price: "RM 599", per: "per month", feats: [["10 Websites", "AI Builder Pro"], ["E-Commerce", "Global Payments"], ["Klarna + Afterpay", "Priority Support"]], cta: "Get Started", style: "ghost" as const },
+  { tier: "Enterprise", name: "KĀDU", tamil: "காடு · The Forest", price: "Custom", per: "tailored pricing", feats: [["Unlimited Sites", "Dedicated AI"], ["White Label", "API Access"], ["Custom Integrations", "Investor Deck"]], cta: "Contact Us", style: "ghost" as const },
+  { tier: "🎓 Student", name: "KALVI", tamil: "கல்வி · Education", price: "RM 29", per: "/ month · 70% off", feats: [["2 Websites", "AI Builder Full"], ["Portfolio Template", "Student ID Verified"], ["All Universities MY", "Upgrade Anytime"]], cta: "Apply Now", style: "gold" as const },
+];
+
+const payments = ["🇲🇾 FPX / DuitNow","🟢 GrabPay Later","🔵 Atome 3x","💳 Visa / Mastercard","🍎 Apple Pay","🤖 Google Pay","🌍 Klarna (EU/UK)","🇦🇺 Afterpay","🇦🇪 Tabby (Gulf)","🇮🇳 Razorpay (India)"];
+
+function VegamLanding() {
+  const cursorDot = useRef<HTMLDivElement>(null);
+  const cursorRing = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Hero entrance
+    const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+    tl.to(".h1-line", { y: 0, duration: 1.2, stagger: 0.08 }, 0)
+      .to(".hero-label, .hero-sub, .hero-ctas, .scroll-hint", { opacity: 1, duration: 0.8, stagger: 0.12 }, 0.4);
+
+    // Reveal on scroll
+    const els = document.querySelectorAll<HTMLElement>(".rv");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            gsap.to(e.target, { opacity: 1, y: 0, x: 0, duration: 1, ease: "expo.out" });
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12 },
+    );
+    els.forEach((el) => io.observe(el));
+
+    // Custom cursor (desktop only)
+    const isFine = window.matchMedia("(pointer: fine)").matches;
+    if (!isFine) return () => io.disconnect();
+
+    document.body.style.cursor = "none";
+    const dot = cursorDot.current!;
+    const ring = cursorRing.current!;
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    const onMove = (e: MouseEvent) => {
+      mx = e.clientX; my = e.clientY;
+      gsap.to(dot, { x: mx, y: my, duration: 0.05 });
+    };
+    const tick = () => {
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
+      raf = requestAnimationFrame(tick);
+    };
+    let raf = requestAnimationFrame(tick);
+
+    const hovers = document.querySelectorAll<HTMLElement>("a, button, .cursor-hover");
+    const enter = () => ring.classList.add("scale-150", "border-accent");
+    const leave = () => ring.classList.remove("scale-150", "border-accent");
+    hovers.forEach((h) => { h.addEventListener("mouseenter", enter); h.addEventListener("mouseleave", leave); });
+
+    window.addEventListener("mousemove", onMove);
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(raf);
+      window.removeEventListener("mousemove", onMove);
+      hovers.forEach((h) => { h.removeEventListener("mouseenter", enter); h.removeEventListener("mouseleave", leave); });
+      document.body.style.cursor = "";
+    };
+  }, []);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+      {/* Ambient mesh background */}
+      <div className="pointer-events-none fixed inset-0 z-0 bg-mesh" />
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
+
+      {/* Custom cursor */}
+      <div ref={cursorDot} className="pointer-events-none fixed left-0 top-0 z-[9999] h-[5px] w-[5px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground hidden md:block" />
+      <div ref={cursorRing} className="pointer-events-none fixed left-0 top-0 z-[9998] h-10 w-10 rounded-full border border-foreground/30 transition-[transform,border-color] duration-200 hidden md:block" />
+
+      {/* NAV */}
+      <nav className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 md:py-7" style={{ mixBlendMode: "difference" }}>
+        <a href="#top" className="font-display text-lg font-extrabold uppercase tracking-[0.18em] text-foreground">VEGAM</a>
+        <div className="flex items-center gap-6 md:gap-10">
+          <a href="#features" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Features</a>
+          <a href="#showcase" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Showcase</a>
+          <a href="#pricing" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Pricing</a>
+          <button className="rounded-full border border-foreground/30 px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.18em] transition hover:bg-foreground hover:text-background">Get Started</button>
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <section id="top" className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center">
+        <div className="hero-label flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-muted-foreground opacity-0">
+          <span className="h-px w-8 bg-muted-foreground" />
+          வேகம் · vegam.my · AI Website Builder
+        </div>
+
+        <h1 className="mt-9 text-balance">
+          <span className="block overflow-hidden">
+            <span className="h1-line block translate-y-full font-display text-[clamp(64px,13vw,180px)] font-extrabold leading-[0.88]">Build Fast.</span>
+          </span>
+          <span className="block overflow-hidden">
+            <span className="h1-line text-stroke block translate-y-full font-display text-[clamp(64px,13vw,180px)] font-extrabold leading-[0.88]">Grow Global.</span>
+          </span>
+        </h1>
+
+        <p className="hero-sub mx-auto mt-9 max-w-[540px] text-[15px] font-light leading-[1.7] text-muted-foreground opacity-0 md:text-[18px]">
+          Tell our AI your idea. Watch your website build itself live — <span className="text-foreground">in 60 seconds.</span>
+          <br />For Malaysia. For 77 million Tamils. For the world.
+        </p>
+
+        <div className="hero-ctas mt-12 flex flex-wrap items-center justify-center gap-3 opacity-0">
+          <button className="rounded-full bg-foreground px-9 py-4 text-[13px] font-medium tracking-wide text-background transition-all hover:scale-[1.04] hover:bg-accent hover:text-accent-foreground">Start Building Free</button>
+          <button className="rounded-full border border-border-strong px-9 py-4 text-[13px] tracking-wide transition-all hover:scale-[1.04] hover:border-foreground/60">See Live Demo</button>
+        </div>
+
+        <div className="scroll-hint absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2.5 opacity-0">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Scroll</p>
+          <div className="animate-scroll-arrow h-12 w-px bg-gradient-to-b from-foreground/40 to-transparent" />
+        </div>
+      </section>
+
+      {/* MARQUEE */}
+      <div className="relative z-10 overflow-hidden border-y border-border bg-background py-6">
+        <div className="animate-marquee flex w-max gap-16">
+          {[...marquee, ...marquee, ...marquee].map((m, i) => (
+            <div key={i} className="font-display text-[13px] font-bold uppercase tracking-[0.18em] text-foreground/25 whitespace-nowrap">{m}</div>
+          ))}
+        </div>
+      </div>
+
+      {/* FEATURES */}
+      <section id="features" className="relative z-10 px-6 py-32 md:px-12 md:py-40">
+        <div className="mx-auto max-w-7xl">
+          <div className="rv flex items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-muted-foreground" style={{opacity:0,transform:"translateY(40px)"}}>
+            <span className="h-px w-6 bg-accent" />Arsenal
+          </div>
+          <h2 className="rv mt-6 font-display text-[clamp(40px,6vw,80px)] font-extrabold leading-[0.95]" style={{opacity:0,transform:"translateY(40px)"}}>
+            Everything<br /><span className="text-stroke">you need.</span>
+          </h2>
+
+          <div className="mt-20 grid grid-cols-1 gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
+            {features.map((f) => (
+              <div key={f.n} className="group cursor-hover relative overflow-hidden bg-background p-12 transition-colors hover:bg-accent/5">
+                <div className="font-display text-[11px] tracking-[0.3em] text-accent/50">{f.n}</div>
+                <div className="mt-8 text-3xl grayscale transition-[filter] duration-300 group-hover:grayscale-0">{f.icon}</div>
+                <h3 className="mt-5 font-display text-xl font-bold">{f.title}</h3>
+                <p className="mt-3 text-[14px] font-light leading-[1.8] text-muted-foreground">{f.desc}</p>
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r from-accent to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* UYIR SHOWCASE */}
+      <section className="relative z-10 overflow-hidden border-y border-border bg-surface py-32 md:py-40">
+        <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:grid-cols-2 md:gap-24 md:px-12">
+          <div>
+            <div className="rv flex items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-muted-foreground" style={{opacity:0,transform:"translateX(-40px)"}}>
+              <span className="h-px w-6 bg-accent" />World First Template
+            </div>
+            <h3 className="rv mt-6 font-display text-[clamp(36px,5vw,64px)] font-extrabold leading-[0.95]" style={{opacity:0,transform:"translateX(-40px)"}}>
+              Uyir AI<br /><span className="bg-gradient-ember bg-clip-text text-transparent">Memorial</span>
+            </h3>
+            <p className="rv mt-6 text-[15px] font-light leading-[1.85] text-muted-foreground" style={{opacity:0,transform:"translateX(-40px)"}}>
+              Their voice. Their face. Their stories. Preserved forever. Your family talks to them — in Tamil, in their actual voice, through AI. Built for 77 million Tamil families worldwide.
+            </p>
+            <ul className="rv mt-8 flex flex-col gap-3 text-[13px] text-foreground/60" style={{opacity:0,transform:"translateX(-40px)"}}>
+              {["AI writes their life story from your memories","ElevenLabs voice clone — hear them again","D-ID avatar — see them speak in video","Claude AI chat — talk to them, they remember","Private family + public tribute modes"].map((x)=>(
+                <li key={x} className="flex items-center gap-3 border-b border-border pb-3 last:border-0"><span className="h-px w-2 bg-accent" />{x}</li>
+              ))}
+            </ul>
+            <button className="rv mt-9 rounded-full bg-gradient-ember px-8 py-4 text-[12px] font-medium uppercase tracking-[0.15em] text-accent-foreground shadow-ember transition hover:scale-[1.03]" style={{opacity:0,transform:"translateX(-40px)"}}>
+              Get This Template
+            </button>
+          </div>
+
+          {/* Memorial chat card */}
+          <div className="rv glass relative overflow-hidden rounded-3xl border border-border shadow-soft" style={{opacity:0,transform:"translateX(40px)"}}>
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
+            <div className="flex items-center gap-4 border-b border-border p-7">
+              <div className="animate-ember-glow flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-accent/40 text-2xl" style={{ background: "radial-gradient(circle at 35% 30%, oklch(0.78 0.19 50 / 0.5), oklch(0.55 0.18 38 / 0.15))" }}>🪔</div>
+              <div>
+                <div className="font-display text-[17px] font-bold">Paati Kamalam</div>
+                <div className="text-[11px] tracking-wide text-muted-foreground">1938 – 2023 · Thanjavur, Tamil Nadu</div>
+              </div>
+              <div className="ml-auto flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-jade">
+                <span className="animate-status-pulse h-1.5 w-1.5 rounded-full bg-jade" />Active
+              </div>
+            </div>
+            <div className="flex min-h-[220px] flex-col gap-3 p-6">
+              <div className="max-w-[85%] self-start rounded-[4px_14px_14px_14px] border border-border bg-foreground/5 px-4 py-3 text-[13px] italic leading-[1.65] text-foreground/80">"Kanna… is that you? Come sit with me. Saaptingala? Have you eaten? 🙏"</div>
+              <div className="max-w-[85%] self-end rounded-[14px_4px_14px_14px] bg-accent px-4 py-3 text-[13px] text-accent-foreground">Paati I miss you so much</div>
+              <div className="max-w-[85%] self-start rounded-[4px_14px_14px_14px] border border-border bg-foreground/5 px-4 py-3 text-[13px] italic leading-[1.65] text-foreground/80">"Aiyyo kanna, I miss you every day. But I am always here — in your heart, in your kitchen, in the jasmine you smell. 🌸"</div>
+            </div>
+            <div className="flex items-center gap-2 border-t border-border p-4">
+              <input className="flex-1 bg-transparent px-2 text-[13px] outline-none placeholder:text-foreground/20" placeholder="Type a message to Paati..." />
+              <button className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-base text-accent-foreground transition hover:scale-110 hover:bg-accent-glow">↑</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SHOWCASE GRID */}
+      <section id="showcase" className="relative z-10 px-6 py-32 md:px-12 md:py-40">
+        <div className="mx-auto max-w-7xl">
+          <div className="rv flex items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-muted-foreground" style={{opacity:0,transform:"translateY(40px)"}}>
+            <span className="h-px w-6 bg-accent" />Real Work
+          </div>
+          <h2 className="rv mt-6 font-display text-[clamp(40px,6vw,80px)] font-extrabold leading-[0.95]" style={{opacity:0,transform:"translateY(40px)"}}>
+            Built by us.<br /><span className="text-stroke">Running live.</span>
+          </h2>
+          <p className="rv mt-6 max-w-2xl text-[15px] font-light leading-[1.8] text-muted-foreground" style={{opacity:0,transform:"translateY(40px)"}}>
+            We don't just build templates. These are real systems, running in a real hotel in Malaysia right now. This is VEGAM's standard.
+          </p>
+
+          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {showcase.map((s) => (
+              <div key={s.title} className="rv group cursor-hover relative overflow-hidden rounded-2xl border border-border bg-surface transition-all hover:border-border-strong hover:-translate-y-2" style={{opacity:0,transform:"translateY(40px)"}}>
+                <div className="border-b border-border bg-gradient-to-br from-accent/10 to-transparent p-7">
+                  <div className="text-3xl">{s.icon}</div>
+                  <div className="mt-4 font-display text-base font-bold">{s.brand}</div>
+                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{s.sub}</div>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {s.tags.map((t) => (
+                      <span key={t} className="rounded-full border border-border px-2.5 py-1 text-[10px] tracking-wide text-foreground/60">{t}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="p-7">
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-accent">{s.badge}</div>
+                  <h3 className="mt-2 font-display text-xl font-bold">{s.title}</h3>
+                  <p className="mt-3 text-[13px] font-light leading-[1.7] text-muted-foreground">{s.desc}</p>
+                  <div className="mt-6 flex items-center justify-between border-t border-border pt-4 text-[12px]">
+                    <span className="flex items-center gap-2 text-jade"><span className="animate-status-pulse h-1.5 w-1.5 rounded-full bg-jade" />{s.status}</span>
+                    <span className="text-foreground/60 transition group-hover:text-accent">{s.cta}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="rv mt-16 rounded-2xl border border-border bg-surface p-10 text-center" style={{opacity:0,transform:"translateY(40px)"}}>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Built With</div>
+            <p className="mx-auto mt-5 max-w-2xl font-display text-xl italic text-foreground/80 md:text-2xl">
+              "We don't sell templates.<br />We build real systems that run real businesses."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section id="pricing" className="relative z-10 border-t border-border bg-surface px-6 py-32 md:px-12 md:py-40">
+        <div className="mx-auto max-w-7xl">
+          <div className="rv flex items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-muted-foreground" style={{opacity:0,transform:"translateY(40px)"}}>
+            <span className="h-px w-6 bg-accent" />Plans
+          </div>
+          <h2 className="rv mt-6 font-display text-[clamp(40px,6vw,80px)] font-extrabold leading-[0.95]" style={{opacity:0,transform:"translateY(40px)"}}>
+            Choose your<br /><span className="text-stroke">power tier.</span>
+          </h2>
+
+          <div className="mt-16 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-5">
+            {plans.map((p) => (
+              <div key={p.name} className={`relative flex cursor-hover flex-col p-7 transition-colors ${p.featured ? "bg-surface-elevated" : "bg-background hover:bg-surface"}`}>
+                {p.featured && <div className="absolute inset-x-0 top-0 bg-gradient-ember py-1.5 text-center text-[9px] font-semibold uppercase tracking-[0.2em] text-accent-foreground">Most Popular</div>}
+                {p.style === "gold" && <div className="mb-3 inline-block w-fit rounded-full border border-gold/40 px-3 py-1 text-[9px] uppercase tracking-[0.2em] text-gold">{p.tier}</div>}
+                <div className={`text-[9px] uppercase tracking-[0.35em] text-muted-foreground ${p.featured ? "mt-6" : ""} ${p.style === "gold" ? "hidden" : ""}`}>{p.tier}</div>
+                <div className="mt-2 font-display text-2xl font-extrabold">{p.name}</div>
+                <div className="mt-1 text-[11px] italic text-muted-foreground">{p.tamil}</div>
+                <div className={`mt-7 font-display text-[44px] font-extrabold leading-none ${p.style === "gold" ? "text-gold" : ""}`}>{p.price}</div>
+                <div className="mt-1 text-[11px] text-muted-foreground">{p.per}</div>
+                <div className="my-6 h-px bg-border" />
+                <ul className="flex flex-1 flex-col gap-2.5 text-[12px] text-muted-foreground">
+                  {p.feats.flat().map((f) => (
+                    <li key={f} className="flex items-start gap-2.5"><span className="text-accent/60">—</span>{f}</li>
+                  ))}
+                </ul>
+                <button className={`mt-8 w-full rounded-full px-4 py-3 text-[11px] font-medium uppercase tracking-[0.12em] transition ${
+                  p.style === "solid" ? "bg-foreground text-background hover:bg-accent hover:text-accent-foreground" :
+                  p.style === "gold" ? "border border-gold/40 text-gold hover:bg-gold/10" :
+                  "border border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
+                }`}>{p.cta}</button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PAYMENTS */}
+      <section className="relative z-10 px-6 py-32 md:px-12">
+        <div className="mx-auto max-w-5xl text-center">
+          <div className="rv inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-muted-foreground" style={{opacity:0,transform:"translateY(40px)"}}>
+            <span className="h-px w-6 bg-accent" />Payments<span className="h-px w-6 bg-accent" />
+          </div>
+          <h2 className="rv mt-6 font-display text-[clamp(36px,5vw,64px)] font-extrabold" style={{opacity:0,transform:"translateY(40px)"}}>Pay your way.</h2>
+          <div className="rv mt-12 flex flex-wrap justify-center gap-2.5" style={{opacity:0,transform:"translateY(40px)"}}>
+            {payments.map((p) => (
+              <div key={p} className="cursor-hover rounded-full border border-border px-5 py-2.5 text-[12px] text-muted-foreground transition hover:border-border-strong hover:text-foreground">{p}</div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="relative z-10 border-t border-border px-6 py-20 md:px-12">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-wrap items-start justify-between gap-12 pb-16">
+            <div>
+              <div className="font-display text-2xl font-extrabold uppercase tracking-[0.18em]">VEGAM</div>
+              <p className="mt-3 max-w-[280px] text-[13px] leading-[1.7] text-muted-foreground">AI-powered website builder for Malaysian businesses and the global Tamil diaspora. Built in Malaysia. For the world.</p>
+            </div>
+            <div className="flex flex-wrap gap-12 md:gap-16">
+              {[
+                { h: "Product", l: ["Features","Pricing","Templates","Roadmap"] },
+                { h: "Templates", l: ["Uyir AI Memorial","Restaurant","E-Commerce","Portfolio"] },
+                { h: "Company", l: ["About","Blog","Contact","vegam.my"] },
+              ].map((c) => (
+                <div key={c.h}>
+                  <h4 className="font-display text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/40">{c.h}</h4>
+                  <div className="mt-4 flex flex-col gap-2.5">
+                    {c.l.map((x) => <a key={x} href="#" className="text-[13px] text-muted-foreground transition hover:text-foreground">{x}</a>)}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-8">
+            <p className="text-[11px] tracking-wide text-foreground/25">© 2026 VEGAM · vegam.my · Karthikesu Kesavan · All rights reserved</p>
+            <p className="text-[11px] tracking-[0.15em] text-accent/50">🔱 Murugan Vazhga · வேகம்</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
