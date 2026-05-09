@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { HeroOrb } from "@/components/HeroOrb";
 import laptopImg from "@/assets/showcase-laptop.jpg";
+import laptopVideo from "@/assets/showcase-laptop.mp4.asset.json";
 import phoneImg from "@/assets/showcase-phone.jpg";
 import tabletImg from "@/assets/showcase-tablet.jpg";
 
@@ -249,7 +250,16 @@ function VegamLanding() {
             {/* Glow halo */}
             <div className="pointer-events-none absolute -inset-16 -z-10 rounded-[100px] opacity-70 blur-3xl" style={{ background: "radial-gradient(ellipse at center, oklch(0.68 0.22 38 / 0.4), transparent 60%)" }} />
             <div className="relative overflow-hidden rounded-3xl border border-border-strong bg-surface shadow-soft">
-              <img src={laptopImg} alt="VEGAM AI builder running live" width={1280} height={960} className="h-full w-full object-cover" />
+              <video
+                src={laptopVideo.url}
+                poster={laptopImg}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="h-full w-full object-cover"
+                aria-label="VEGAM AI builder running live"
+              />
               <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-foreground/5" />
             </div>
 
