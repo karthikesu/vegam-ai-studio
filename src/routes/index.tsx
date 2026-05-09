@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap",
       },
     ],
   }),
@@ -142,8 +142,29 @@ function VegamLanding() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+      {/* SVG goo filter for liquid effect */}
+      <svg className="pointer-events-none fixed h-0 w-0" aria-hidden>
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="22" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+
       {/* Ambient mesh background */}
       <div className="pointer-events-none fixed inset-0 z-0 bg-mesh" />
+
+      {/* Liquid ember blobs */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-60">
+        <div className="goo absolute inset-0">
+          <div className="animate-blob-1 absolute left-[8%] top-[18%] h-[380px] w-[380px] rounded-full" style={{ background: "radial-gradient(circle, oklch(0.68 0.22 38 / 0.55), transparent 70%)" }} />
+          <div className="animate-blob-2 absolute right-[6%] top-[42%] h-[440px] w-[440px] rounded-full" style={{ background: "radial-gradient(circle, oklch(0.78 0.19 50 / 0.45), transparent 70%)" }} />
+          <div className="animate-blob-3 absolute left-[32%] bottom-[8%] h-[360px] w-[360px] rounded-full" style={{ background: "radial-gradient(circle, oklch(0.55 0.18 280 / 0.35), transparent 70%)" }} />
+        </div>
+      </div>
+
       <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
 
       {/* Custom cursor */}
@@ -181,7 +202,7 @@ function VegamLanding() {
             <span className="h1-line block translate-y-full font-display text-[clamp(64px,13vw,180px)] font-extrabold leading-[0.88]">Build Fast.</span>
           </span>
           <span className="block overflow-hidden">
-            <span className="h1-line text-stroke block translate-y-full font-display text-[clamp(64px,13vw,180px)] font-extrabold leading-[0.88]">Grow Global.</span>
+            <span className="h1-line block translate-y-full font-serif-italic text-[clamp(72px,14vw,200px)] font-normal leading-[0.88] text-gradient-ember">Grow Global.</span>
           </span>
         </h1>
 
@@ -218,7 +239,7 @@ function VegamLanding() {
             <span className="h-px w-6 bg-accent" />The Builder
           </div>
           <h2 className="rv mt-6 font-display text-[clamp(40px,7vw,96px)] font-extrabold leading-[0.9]" style={{opacity:0,transform:"translateY(40px)"}}>
-            One canvas.<br /><span className="bg-gradient-ember bg-clip-text text-transparent">Infinite sites.</span>
+            One canvas.<br /><span className="font-serif-italic text-shimmer">Infinite sites.</span>
           </h2>
           <p className="rv mx-auto mt-6 max-w-xl text-[15px] font-light leading-[1.8] text-muted-foreground" style={{opacity:0,transform:"translateY(40px)"}}>
             A studio-grade AI builder. Speak. Watch your brand assemble itself in real time — pixel-perfect, production-ready, deployed.
@@ -253,7 +274,7 @@ function VegamLanding() {
               { n: "0", l: "lines of code" },
             ].map((s) => (
               <div key={s.l} className="bg-background px-6 py-10">
-                <div className="font-display text-[44px] font-extrabold leading-none bg-gradient-ember bg-clip-text text-transparent">{s.n}</div>
+                <div className="font-display text-[44px] font-extrabold leading-none text-gradient-ember">{s.n}</div>
                 <div className="mt-3 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{s.l}</div>
               </div>
             ))}
@@ -293,7 +314,7 @@ function VegamLanding() {
               <span className="h-px w-6 bg-accent" />World First Template
             </div>
             <h3 className="rv mt-6 font-display text-[clamp(36px,5vw,64px)] font-extrabold leading-[0.95]" style={{opacity:0,transform:"translateX(-40px)"}}>
-              Uyir AI<br /><span className="bg-gradient-ember bg-clip-text text-transparent">Memorial</span>
+              Uyir AI<br /><span className="text-gradient-ember">Memorial</span>
             </h3>
             <p className="rv mt-6 text-[15px] font-light leading-[1.85] text-muted-foreground" style={{opacity:0,transform:"translateX(-40px)"}}>
               Their voice. Their face. Their stories. Preserved forever. Your family talks to them — in Tamil, in their actual voice, through AI. Built for 77 million Tamil families worldwide.
