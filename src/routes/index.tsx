@@ -218,7 +218,7 @@ function VegamLanding() {
             <span className="h-px w-6 bg-accent" />The Builder
           </div>
           <h2 className="rv mt-6 font-display text-[clamp(40px,7vw,96px)] font-extrabold leading-[0.9]" style={{opacity:0,transform:"translateY(40px)"}}>
-            One canvas.<br /><span className="bg-gradient-ember bg-clip-text text-transparent">Infinite sites.</span>
+            One canvas.<br /><span className="text-gradient-ember">Infinite sites.</span>
           </h2>
           <p className="rv mx-auto mt-6 max-w-xl text-[15px] font-light leading-[1.8] text-muted-foreground" style={{opacity:0,transform:"translateY(40px)"}}>
             A studio-grade AI builder. Speak. Watch your brand assemble itself in real time — pixel-perfect, production-ready, deployed.
@@ -253,7 +253,7 @@ function VegamLanding() {
               { n: "0", l: "lines of code" },
             ].map((s) => (
               <div key={s.l} className="bg-background px-6 py-10">
-                <div className="font-display text-[44px] font-extrabold leading-none bg-gradient-ember bg-clip-text text-transparent">{s.n}</div>
+                <div className="font-display text-[44px] font-extrabold leading-none text-gradient-ember">{s.n}</div>
                 <div className="mt-3 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{s.l}</div>
               </div>
             ))}
@@ -293,7 +293,7 @@ function VegamLanding() {
               <span className="h-px w-6 bg-accent" />World First Template
             </div>
             <h3 className="rv mt-6 font-display text-[clamp(36px,5vw,64px)] font-extrabold leading-[0.95]" style={{opacity:0,transform:"translateX(-40px)"}}>
-              Uyir AI<br /><span className="bg-gradient-ember bg-clip-text text-transparent">Memorial</span>
+              Uyir AI<br /><span className="text-gradient-ember">Memorial</span>
             </h3>
             <p className="rv mt-6 text-[15px] font-light leading-[1.85] text-muted-foreground" style={{opacity:0,transform:"translateX(-40px)"}}>
               Their voice. Their face. Their stories. Preserved forever. Your family talks to them — in Tamil, in their actual voice, through AI. Built for 77 million Tamil families worldwide.
