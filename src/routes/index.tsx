@@ -202,7 +202,7 @@ function VegamLanding() {
             <span className="h1-line block translate-y-full font-display text-[clamp(64px,13vw,180px)] font-extrabold leading-[0.88]">Build Fast.</span>
           </span>
           <span className="block overflow-hidden">
-            <span className="h1-line text-stroke block translate-y-full font-display text-[clamp(64px,13vw,180px)] font-extrabold leading-[0.88]">Grow Global.</span>
+            <span className="h1-line block translate-y-full font-serif-italic text-[clamp(72px,14vw,200px)] font-normal leading-[0.88] text-gradient-ember">Grow Global.</span>
           </span>
         </h1>
 
@@ -239,7 +239,7 @@ function VegamLanding() {
             <span className="h-px w-6 bg-accent" />The Builder
           </div>
           <h2 className="rv mt-6 font-display text-[clamp(40px,7vw,96px)] font-extrabold leading-[0.9]" style={{opacity:0,transform:"translateY(40px)"}}>
-            One canvas.<br /><span className="text-gradient-ember">Infinite sites.</span>
+            One canvas.<br /><span className="font-serif-italic text-shimmer">Infinite sites.</span>
           </h2>
           <p className="rv mx-auto mt-6 max-w-xl text-[15px] font-light leading-[1.8] text-muted-foreground" style={{opacity:0,transform:"translateY(40px)"}}>
             A studio-grade AI builder. Speak. Watch your brand assemble itself in real time — pixel-perfect, production-ready, deployed.
