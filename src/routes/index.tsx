@@ -211,6 +211,56 @@ function VegamLanding() {
         </div>
       </div>
 
+      {/* APPLE-STYLE BIG PRODUCT REVEAL */}
+      <section className="relative z-10 overflow-hidden px-6 py-32 md:px-12 md:py-40">
+        <div className="mx-auto max-w-6xl text-center">
+          <div className="rv flex items-center justify-center gap-3 text-[10px] uppercase tracking-[0.35em] text-muted-foreground" style={{opacity:0,transform:"translateY(40px)"}}>
+            <span className="h-px w-6 bg-accent" />The Builder
+          </div>
+          <h2 className="rv mt-6 font-display text-[clamp(40px,7vw,96px)] font-extrabold leading-[0.9]" style={{opacity:0,transform:"translateY(40px)"}}>
+            One canvas.<br /><span className="bg-gradient-ember bg-clip-text text-transparent">Infinite sites.</span>
+          </h2>
+          <p className="rv mx-auto mt-6 max-w-xl text-[15px] font-light leading-[1.8] text-muted-foreground" style={{opacity:0,transform:"translateY(40px)"}}>
+            A studio-grade AI builder. Speak. Watch your brand assemble itself in real time — pixel-perfect, production-ready, deployed.
+          </p>
+
+          <div className="rv tilt relative mx-auto mt-20 max-w-5xl" style={{opacity:0,transform:"translateY(60px)", transformStyle:"preserve-3d"}}>
+            {/* Glow halo */}
+            <div className="pointer-events-none absolute -inset-16 -z-10 rounded-[100px] opacity-70 blur-3xl" style={{ background: "radial-gradient(ellipse at center, oklch(0.68 0.22 38 / 0.4), transparent 60%)" }} />
+            <div className="relative overflow-hidden rounded-3xl border border-border-strong bg-surface shadow-soft">
+              <img src={laptopImg} alt="VEGAM AI builder running live" width={1280} height={960} className="h-full w-full object-cover" />
+              <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-foreground/5" />
+            </div>
+
+            {/* Floating spec chips */}
+            <div className="absolute -left-4 top-12 hidden rounded-full border border-border-strong glass px-4 py-2 text-[11px] tracking-wide text-foreground/80 shadow-soft md:flex md:items-center md:gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-jade animate-status-pulse" /> Live preview
+            </div>
+            <div className="absolute -right-4 top-32 hidden rounded-full border border-border-strong glass px-4 py-2 text-[11px] tracking-wide text-foreground/80 shadow-soft md:block">
+              ⚡ 60 second deploy
+            </div>
+            <div className="absolute -right-6 bottom-16 hidden rounded-full border border-border-strong glass px-4 py-2 text-[11px] tracking-wide text-foreground/80 shadow-soft md:block">
+              🌍 Edge-rendered
+            </div>
+          </div>
+
+          {/* Stat row */}
+          <div className="rv mt-24 grid grid-cols-2 gap-px border border-border bg-border md:grid-cols-4" style={{opacity:0,transform:"translateY(40px)"}}>
+            {[
+              { n: "60s", l: "to first deploy" },
+              { n: "77M", l: "Tamils worldwide" },
+              { n: "10+", l: "payment methods" },
+              { n: "0", l: "lines of code" },
+            ].map((s) => (
+              <div key={s.l} className="bg-background px-6 py-10">
+                <div className="font-display text-[44px] font-extrabold leading-none bg-gradient-ember bg-clip-text text-transparent">{s.n}</div>
+                <div className="mt-3 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FEATURES */}
       <section id="features" className="relative z-10 px-6 py-32 md:px-12 md:py-40">
         <div className="mx-auto max-w-7xl">
