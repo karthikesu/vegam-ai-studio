@@ -171,4 +171,54 @@
     -webkit-text-fill-color: transparent;
     animation: shimmer 6s linear infinite;
   }
+
+  /* LAVA WATERFALL — molten orange ribbon flowing down the page */
+  @keyframes lava-flow {
+    0% { background-position: 0 -800px; }
+    100% { background-position: 0 800px; }
+  }
+  @keyframes lava-flicker {
+    0%, 100% { opacity: 0.9; filter: saturate(1.2); }
+    50% { opacity: 1; filter: saturate(1.6); }
+  }
+  @keyframes lava-pool-pulse {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.55; }
+    50% { transform: translateX(-50%) scale(1.25); opacity: 0.85; }
+  }
+  .lava-waterfall { width: 36px; mix-blend-mode: screen; }
+  .lava-waterfall--right { width: 28px; opacity: 0.7; }
+  .lava-stream {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      oklch(0.78 0.19 50 / 0.55) 8%,
+      oklch(0.68 0.22 38 / 0.95) 30%,
+      oklch(0.55 0.24 30 / 0.95) 60%,
+      oklch(0.68 0.22 38 / 0.9) 85%,
+      oklch(0.78 0.19 50 / 0.6) 98%);
+    background-size: 100% 800px;
+    animation: lava-flow 6s linear infinite, lava-flicker 2.5s ease-in-out infinite;
+    border-radius: 999px;
+    box-shadow: 0 0 24px oklch(0.68 0.22 38 / 0.7), 0 0 60px oklch(0.78 0.19 50 / 0.45), inset 0 0 12px oklch(0.95 0.12 70 / 0.6);
+    clip-path: polygon(30% 0%, 70% 0%, 80% 12%, 20% 22%, 85% 38%, 18% 52%, 82% 68%, 22% 82%, 75% 95%, 25% 100%);
+  }
+  .lava-stream--alt {
+    animation: lava-flow 9s linear infinite reverse, lava-flicker 3.2s ease-in-out infinite;
+    opacity: 0.55;
+    transform: scaleX(-1);
+    filter: blur(2px);
+  }
+  .lava-glow {
+    position: absolute; inset: -40px -60px;
+    background: radial-gradient(ellipse 50% 100% at 50% 50%, oklch(0.68 0.22 38 / 0.35) 0%, oklch(0.78 0.19 50 / 0.15) 35%, transparent 70%);
+    filter: blur(12px);
+  }
+  .lava-pool {
+    position: absolute; bottom: -20px; left: 50%;
+    width: 220px; height: 80px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse at center, oklch(0.95 0.12 70 / 0.9) 0%, oklch(0.78 0.19 50 / 0.7) 25%, oklch(0.68 0.22 38 / 0.5) 55%, transparent 80%);
+    filter: blur(8px);
+    animation: lava-pool-pulse 3s ease-in-out infinite;
+  }
 }
