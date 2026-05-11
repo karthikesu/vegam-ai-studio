@@ -4,7 +4,8 @@ import { gsap } from "gsap";
 import { HeroOrb } from "@/components/HeroOrb";
 import laptopImg from "@/assets/showcase-laptop.jpg";
 import laptopVideo from "@/assets/showcase-laptop.mp4.asset.json";
-import heroVideo from "@/assets/showcase-reveal.mp4.asset.json";
+import heroVideo from "@/assets/showcase-reveal-clean.mp4.asset.json";
+import lavaVideo from "@/assets/lava-waterfall.mp4.asset.json";
 import phoneImg from "@/assets/showcase-phone.jpg";
 import tabletImg from "@/assets/showcase-tablet.jpg";
 
@@ -158,17 +159,28 @@ function VegamLanding() {
       {/* Ambient mesh background */}
       <div className="pointer-events-none fixed inset-0 z-0 bg-mesh" />
 
-      {/* LAVA WATERFALL — flowing molten orange ribbon down the page */}
-      <div className="lava-waterfall pointer-events-none fixed top-0 bottom-0 left-[6%] z-[1] hidden md:block" aria-hidden>
-        <div className="lava-stream" />
-        <div className="lava-stream lava-stream--alt" />
-        <div className="lava-glow" />
-        <div className="lava-pool" />
+      {/* REAL LAVA WATERFALL — cinematic video flowing down both sides */}
+      <div className="pointer-events-none fixed top-0 bottom-0 left-0 z-[1] w-[140px] hidden md:block overflow-hidden" aria-hidden>
+        <video src={lavaVideo.url} autoPlay loop muted playsInline
+          className="h-full w-full object-cover"
+          style={{
+            mixBlendMode: "screen",
+            WebkitMaskImage: "linear-gradient(90deg, #000 0%, #000 55%, transparent 100%)",
+            maskImage: "linear-gradient(90deg, #000 0%, #000 55%, transparent 100%)",
+            filter: "saturate(1.2) contrast(1.05)",
+          }}
+        />
       </div>
-      <div className="lava-waterfall lava-waterfall--right pointer-events-none fixed top-0 bottom-0 right-[5%] z-[1] hidden lg:block" aria-hidden>
-        <div className="lava-stream" />
-        <div className="lava-stream lava-stream--alt" />
-        <div className="lava-glow" />
+      <div className="pointer-events-none fixed top-0 bottom-0 right-0 z-[1] w-[120px] hidden lg:block overflow-hidden" aria-hidden>
+        <video src={lavaVideo.url} autoPlay loop muted playsInline
+          className="h-full w-full object-cover scale-x-[-1]"
+          style={{
+            mixBlendMode: "screen",
+            WebkitMaskImage: "linear-gradient(90deg, #000 0%, #000 55%, transparent 100%)",
+            maskImage: "linear-gradient(90deg, #000 0%, #000 55%, transparent 100%)",
+            opacity: 0.85,
+          }}
+        />
       </div>
 
       {/* Liquid ember blobs */}
