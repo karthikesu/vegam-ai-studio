@@ -258,11 +258,10 @@ function VegamLanding() {
                 loop
                 muted
                 playsInline
-                className="h-[80vh] max-h-[760px] w-full object-cover"
+                className="h-[80vh] max-h-[760px] w-full rounded-3xl object-cover ring-1 ring-inset ring-foreground/10 shadow-soft"
                 style={{
-                  WebkitMaskImage: "radial-gradient(ellipse 75% 70% at center, #000 55%, transparent 95%)",
-                  maskImage: "radial-gradient(ellipse 75% 70% at center, #000 55%, transparent 95%)",
-                  mixBlendMode: "screen",
+                  WebkitMaskImage: "radial-gradient(ellipse 92% 88% at center, #000 78%, transparent 100%)",
+                  maskImage: "radial-gradient(ellipse 92% 88% at center, #000 78%, transparent 100%)",
                 }}
                 aria-label="VEGAM — particles assembling into a website"
               />
