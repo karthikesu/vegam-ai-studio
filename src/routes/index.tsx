@@ -158,6 +158,19 @@ function VegamLanding() {
       {/* Ambient mesh background */}
       <div className="pointer-events-none fixed inset-0 z-0 bg-mesh" />
 
+      {/* LAVA WATERFALL — flowing molten orange ribbon down the page */}
+      <div className="lava-waterfall pointer-events-none fixed top-0 bottom-0 left-[6%] z-[1] hidden md:block" aria-hidden>
+        <div className="lava-stream" />
+        <div className="lava-stream lava-stream--alt" />
+        <div className="lava-glow" />
+        <div className="lava-pool" />
+      </div>
+      <div className="lava-waterfall lava-waterfall--right pointer-events-none fixed top-0 bottom-0 right-[5%] z-[1] hidden lg:block" aria-hidden>
+        <div className="lava-stream" />
+        <div className="lava-stream lava-stream--alt" />
+        <div className="lava-glow" />
+      </div>
+
       {/* Liquid ember blobs */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-60">
         <div className="goo absolute inset-0">
