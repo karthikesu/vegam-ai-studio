@@ -4,7 +4,8 @@ import { gsap } from "gsap";
 import { HeroOrb } from "@/components/HeroOrb";
 import laptopImg from "@/assets/showcase-laptop.jpg";
 import laptopVideo from "@/assets/showcase-laptop.mp4.asset.json";
-import heroVideo from "@/assets/showcase-reveal.mp4.asset.json";
+import heroVideo from "@/assets/showcase-reveal-clean.mp4.asset.json";
+import lavaVideo from "@/assets/lava-waterfall.mp4.asset.json";
 import phoneImg from "@/assets/showcase-phone.jpg";
 import tabletImg from "@/assets/showcase-tablet.jpg";
 
@@ -158,17 +159,28 @@ function VegamLanding() {
       {/* Ambient mesh background */}
       <div className="pointer-events-none fixed inset-0 z-0 bg-mesh" />
 
-      {/* LAVA WATERFALL — flowing molten orange ribbon down the page */}
-      <div className="lava-waterfall pointer-events-none fixed top-0 bottom-0 left-[6%] z-[1] hidden md:block" aria-hidden>
-        <div className="lava-stream" />
-        <div className="lava-stream lava-stream--alt" />
-        <div className="lava-glow" />
-        <div className="lava-pool" />
+      {/* REAL LAVA WATERFALL — cinematic video flowing down both sides */}
+      <div className="pointer-events-none fixed top-0 bottom-0 left-0 z-[1] w-[140px] hidden md:block overflow-hidden" aria-hidden>
+        <video src={lavaVideo.url} autoPlay loop muted playsInline
+          className="h-full w-full object-cover"
+          style={{
+            mixBlendMode: "screen",
+            WebkitMaskImage: "linear-gradient(90deg, #000 0%, #000 55%, transparent 100%)",
+            maskImage: "linear-gradient(90deg, #000 0%, #000 55%, transparent 100%)",
+            filter: "saturate(1.2) contrast(1.05)",
+          }}
+        />
       </div>
-      <div className="lava-waterfall lava-waterfall--right pointer-events-none fixed top-0 bottom-0 right-[5%] z-[1] hidden lg:block" aria-hidden>
-        <div className="lava-stream" />
-        <div className="lava-stream lava-stream--alt" />
-        <div className="lava-glow" />
+      <div className="pointer-events-none fixed top-0 bottom-0 right-0 z-[1] w-[120px] hidden lg:block overflow-hidden" aria-hidden>
+        <video src={lavaVideo.url} autoPlay loop muted playsInline
+          className="h-full w-full object-cover scale-x-[-1]"
+          style={{
+            mixBlendMode: "screen",
+            WebkitMaskImage: "linear-gradient(90deg, #000 0%, #000 55%, transparent 100%)",
+            maskImage: "linear-gradient(90deg, #000 0%, #000 55%, transparent 100%)",
+            opacity: 0.85,
+          }}
+        />
       </div>
 
       {/* Liquid ember blobs */}
@@ -281,6 +293,46 @@ function VegamLanding() {
               {/* Vignette top/bottom for seamless blend */}
               <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background to-transparent" />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
+
+              {/* READABLE MOCK WEBSITE OVERLAY — sharp HTML text the user can actually read */}
+              <div className="pointer-events-none absolute left-1/2 top-1/2 hidden w-[min(720px,82%)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-border-strong bg-background/70 p-5 backdrop-blur-xl shadow-ember sm:block">
+                {/* faux browser chrome */}
+                <div className="flex items-center gap-2 border-b border-border pb-3">
+                  <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-gold/80" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-jade/80" />
+                  <div className="ml-3 flex-1 rounded-md bg-surface px-3 py-1 text-left text-[11px] text-muted-foreground">
+                    vegam.my / your-brand
+                  </div>
+                  <span className="h-1.5 w-1.5 rounded-full bg-jade animate-status-pulse" />
+                </div>
+                {/* faux site content */}
+                <div className="grid grid-cols-3 gap-4 pt-5 text-left">
+                  <div className="col-span-2">
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-accent">Live Preview</p>
+                    <h3 className="mt-2 font-display text-2xl font-extrabold leading-tight text-foreground">
+                      Your Brand,<br/><span className="font-serif-italic text-gradient-ember">Built in 60 seconds.</span>
+                    </h3>
+                    <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+                      Speak your idea. Sakthi AI assembles a production-ready site — pixel-perfect, deployed to the edge.
+                    </p>
+                    <div className="mt-3 flex gap-2">
+                      <span className="rounded-full bg-foreground px-3 py-1.5 text-[10px] font-medium text-background">Get Started</span>
+                      <span className="rounded-full border border-border-strong px-3 py-1.5 text-[10px] text-foreground/80">Demo</span>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="rounded-lg border border-border bg-surface/80 p-2.5">
+                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Visitors</p>
+                      <p className="font-display text-lg font-bold text-foreground">12,840</p>
+                    </div>
+                    <div className="rounded-lg border border-border bg-surface/80 p-2.5">
+                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Conversions</p>
+                      <p className="font-display text-lg font-bold text-gradient-ember">+38%</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Floating spec chips */}
