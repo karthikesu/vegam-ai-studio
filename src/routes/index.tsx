@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { HeroOrb } from "@/components/HeroOrb";
 import laptopImg from "@/assets/showcase-laptop.jpg";
 import laptopVideo from "@/assets/showcase-laptop.mp4.asset.json";
-import heroVideo from "@/assets/showcase-hero.mp4.asset.json";
+import heroVideo from "@/assets/showcase-reveal.mp4.asset.json";
 import phoneImg from "@/assets/showcase-phone.jpg";
 import tabletImg from "@/assets/showcase-tablet.jpg";
 
@@ -247,20 +247,28 @@ function VegamLanding() {
             A studio-grade AI builder. Speak. Watch your brand assemble itself in real time — pixel-perfect, production-ready, deployed.
           </p>
 
-          <div className="rv tilt relative mx-auto mt-20 max-w-5xl" style={{opacity:0,transform:"translateY(60px)", transformStyle:"preserve-3d"}}>
-            {/* Glow halo */}
-            <div className="pointer-events-none absolute -inset-16 -z-10 rounded-[100px] opacity-70 blur-3xl" style={{ background: "radial-gradient(ellipse at center, oklch(0.68 0.22 38 / 0.4), transparent 60%)" }} />
-            <div className="relative overflow-hidden rounded-3xl border border-border-strong bg-surface shadow-soft">
+          <div className="rv tilt relative mx-auto mt-20 max-w-6xl" style={{opacity:0,transform:"translateY(60px)", transformStyle:"preserve-3d"}}>
+            {/* Ember halo bleeding into page */}
+            <div className="pointer-events-none absolute -inset-24 -z-10 opacity-80 blur-3xl" style={{ background: "radial-gradient(ellipse at center, oklch(0.68 0.22 38 / 0.45), transparent 65%)" }} />
+            {/* Frameless transparent video — blends into the black page */}
+            <div className="relative">
               <video
                 src={heroVideo.url}
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="h-[70vh] max-h-[680px] w-full object-cover"
-                aria-label="VEGAM — liquid metal product reveal"
+                className="h-[80vh] max-h-[760px] w-full object-cover"
+                style={{
+                  WebkitMaskImage: "radial-gradient(ellipse 75% 70% at center, #000 55%, transparent 95%)",
+                  maskImage: "radial-gradient(ellipse 75% 70% at center, #000 55%, transparent 95%)",
+                  mixBlendMode: "screen",
+                }}
+                aria-label="VEGAM — particles assembling into a website"
               />
-              <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-foreground/5" />
+              {/* Vignette top/bottom for seamless blend */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
             </div>
 
             {/* Floating spec chips */}
