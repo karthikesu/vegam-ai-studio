@@ -373,9 +373,9 @@ function VegamLanding() {
             Everything<br /><span className="text-stroke">you need.</span>
           </h2>
 
-          <div className="mt-20 grid grid-cols-1 gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-20 grid grid-cols-1 gap-px bg-border/40 md:grid-cols-2 lg:grid-cols-3">
             {features.map((f) => (
-              <div key={f.n} className="group cursor-hover relative overflow-hidden bg-background p-12 transition-colors hover:bg-accent/5">
+              <div key={f.n} className="group cursor-hover relative overflow-hidden bg-background/30 backdrop-blur-md p-12 transition-colors hover:bg-accent/10">
                 <div className="font-display text-[11px] tracking-[0.3em] text-accent/50">{f.n}</div>
                 <div className="mt-8 text-3xl grayscale transition-[filter] duration-300 group-hover:grayscale-0">{f.icon}</div>
                 <h3 className="mt-5 font-display text-xl font-bold">{f.title}</h3>
@@ -388,7 +388,7 @@ function VegamLanding() {
       </section>
 
       {/* UYIR SHOWCASE */}
-      <section className="relative z-10 overflow-hidden border-y border-border bg-surface py-32 md:py-40">
+      <section className="relative z-10 overflow-hidden border-y border-border bg-surface/20 backdrop-blur-sm py-32 md:py-40">
         <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:grid-cols-2 md:gap-24 md:px-12">
           <div>
             <div className="rv flex items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-muted-foreground" style={{opacity:0,transform:"translateX(-40px)"}}>
@@ -451,8 +451,8 @@ function VegamLanding() {
 
           <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
             {showcase.map((s) => (
-              <div key={s.title} className="rv tilt group cursor-hover relative overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-border-strong" style={{opacity:0,transform:"translateY(40px)", transformStyle:"preserve-3d"}}>
-                <div className="relative aspect-[4/3] overflow-hidden border-b border-border bg-black">
+              <div key={s.title} className="rv tilt group cursor-hover relative overflow-hidden rounded-2xl border border-border bg-surface/30 backdrop-blur-md transition-colors hover:border-border-strong" style={{opacity:0,transform:"translateY(40px)", transformStyle:"preserve-3d"}}>
+                <div className="relative aspect-[4/3] overflow-hidden border-b border-border">
                   <img src={s.img} alt={s.title} loading="lazy" width={1024} height={768} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
                   <div className="absolute left-5 top-5 rounded-full border border-border-strong bg-background/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-accent backdrop-blur">{s.badge}</div>
@@ -476,7 +476,7 @@ function VegamLanding() {
             ))}
           </div>
 
-          <div className="rv mt-16 rounded-2xl border border-border bg-surface p-10 text-center" style={{opacity:0,transform:"translateY(40px)"}}>
+          <div className="rv mt-16 rounded-2xl border border-border bg-surface/30 backdrop-blur-md p-10 text-center" style={{opacity:0,transform:"translateY(40px)"}}>
             <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Built With</div>
             <p className="mx-auto mt-5 max-w-2xl font-display text-xl italic text-foreground/80 md:text-2xl">
               "We don't sell templates.<br />We build real systems that run real businesses."
@@ -486,7 +486,7 @@ function VegamLanding() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="relative z-10 border-t border-border bg-surface px-6 py-32 md:px-12 md:py-40">
+      <section id="pricing" className="relative z-10 border-t border-border bg-surface/20 backdrop-blur-sm px-6 py-32 md:px-12 md:py-40">
         <div className="mx-auto max-w-7xl">
           <div className="rv flex items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-muted-foreground" style={{opacity:0,transform:"translateY(40px)"}}>
             <span className="h-px w-6 bg-accent" />Plans
@@ -495,9 +495,9 @@ function VegamLanding() {
             Choose your<br /><span className="text-stroke">power tier.</span>
           </h2>
 
-          <div className="mt-16 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-16 grid grid-cols-1 gap-px bg-border/40 sm:grid-cols-2 lg:grid-cols-5">
             {plans.map((p) => (
-              <div key={p.name} className={`relative flex cursor-hover flex-col p-7 transition-colors ${p.featured ? "bg-surface-elevated" : "bg-background hover:bg-surface"}`}>
+              <div key={p.name} className={`relative flex cursor-hover flex-col p-7 backdrop-blur-md transition-colors ${p.featured ? "bg-surface-elevated/40" : "bg-background/25 hover:bg-surface/40"}`}>
                 {p.featured && <div className="absolute inset-x-0 top-0 bg-gradient-ember py-1.5 text-center text-[9px] font-semibold uppercase tracking-[0.2em] text-accent-foreground">Most Popular</div>}
                 {p.style === "gold" && <div className="mb-3 inline-block w-fit rounded-full border border-gold/40 px-3 py-1 text-[9px] uppercase tracking-[0.2em] text-gold">{p.tier}</div>}
                 <div className={`text-[9px] uppercase tracking-[0.35em] text-muted-foreground ${p.featured ? "mt-6" : ""} ${p.style === "gold" ? "hidden" : ""}`}>{p.tier}</div>
