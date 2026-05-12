@@ -275,7 +275,7 @@ function VegamLanding() {
           <div className="rv tilt relative mx-auto mt-20 max-w-6xl" style={{opacity:0,transform:"translateY(60px)", transformStyle:"preserve-3d"}}>
             {/* Ember halo bleeding into page */}
             <div className="pointer-events-none absolute -inset-24 -z-10 opacity-80 blur-3xl" style={{ background: "radial-gradient(ellipse at center, oklch(0.68 0.22 38 / 0.45), transparent 65%)" }} />
-            {/* Frameless transparent video — blends into the black page */}
+            {/* Frameless transparent video — black is keyed out so lava + orb show through */}
             <div className="relative">
               <video
                 src={heroVideo.url}
@@ -283,19 +283,18 @@ function VegamLanding() {
                 loop
                 muted
                 playsInline
-                className="h-[80vh] max-h-[760px] w-full rounded-3xl object-cover ring-1 ring-inset ring-foreground/10 shadow-soft"
+                className="h-[80vh] max-h-[760px] w-full object-cover"
                 style={{
-                  WebkitMaskImage: "radial-gradient(ellipse 92% 88% at center, #000 78%, transparent 100%)",
-                  maskImage: "radial-gradient(ellipse 92% 88% at center, #000 78%, transparent 100%)",
+                  mixBlendMode: "screen",
+                  WebkitMaskImage: "radial-gradient(ellipse 92% 88% at center, #000 60%, transparent 100%)",
+                  maskImage: "radial-gradient(ellipse 92% 88% at center, #000 60%, transparent 100%)",
+                  filter: "saturate(1.15) contrast(1.05)",
                 }}
-                aria-label="VEGAM — particles assembling into a website"
+                aria-label="VEGAM — floating website panels"
               />
-              {/* Vignette top/bottom for seamless blend */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background to-transparent" />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
 
-              {/* READABLE MOCK WEBSITE OVERLAY — sharp HTML text the user can actually read */}
-              <div className="pointer-events-none absolute left-1/2 top-1/2 hidden w-[min(720px,82%)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-border-strong bg-background/70 p-5 backdrop-blur-xl shadow-ember sm:block">
+              {/* READABLE MOCK WEBSITE OVERLAY — translucent so lava/orb bleed through */}
+              <div className="pointer-events-none absolute left-1/2 top-1/2 hidden w-[min(720px,82%)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-foreground/15 bg-background/25 p-5 backdrop-blur-md shadow-ember sm:block">
                 {/* faux browser chrome */}
                 <div className="flex items-center gap-2 border-b border-border pb-3">
                   <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
@@ -322,11 +321,11 @@ function VegamLanding() {
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <div className="rounded-lg border border-border bg-surface/80 p-2.5">
+                    <div className="rounded-lg border border-border bg-surface/30 p-2.5 backdrop-blur-sm">
                       <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Visitors</p>
                       <p className="font-display text-lg font-bold text-foreground">12,840</p>
                     </div>
-                    <div className="rounded-lg border border-border bg-surface/80 p-2.5">
+                    <div className="rounded-lg border border-border bg-surface/30 p-2.5 backdrop-blur-sm">
                       <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Conversions</p>
                       <p className="font-display text-lg font-bold text-gradient-ember">+38%</p>
                     </div>
@@ -348,14 +347,14 @@ function VegamLanding() {
           </div>
 
           {/* Stat row */}
-          <div className="rv mt-24 grid grid-cols-2 gap-px border border-border bg-border md:grid-cols-4" style={{opacity:0,transform:"translateY(40px)"}}>
+          <div className="rv mt-24 grid grid-cols-2 gap-px border border-border/60 bg-transparent md:grid-cols-4" style={{opacity:0,transform:"translateY(40px)"}}>
             {[
               { n: "60s", l: "to first deploy" },
               { n: "77M", l: "Tamils worldwide" },
               { n: "10+", l: "payment methods" },
               { n: "0", l: "lines of code" },
             ].map((s) => (
-              <div key={s.l} className="bg-background px-6 py-10">
+              <div key={s.l} className="bg-background/30 backdrop-blur-sm px-6 py-10">
                 <div className="font-display text-[44px] font-extrabold leading-none text-gradient-ember">{s.n}</div>
                 <div className="mt-3 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{s.l}</div>
               </div>
