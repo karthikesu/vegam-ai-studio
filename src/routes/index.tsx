@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { HeroOrb } from "@/components/HeroOrb";
 import laptopImg from "@/assets/showcase-laptop.jpg";
 import laptopVideo from "@/assets/showcase-laptop.mp4.asset.json";
-import heroVideo from "@/assets/showcase-reveal-clean.mp4.asset.json";
+import heroVideo from "@/assets/showcase-stack.mp4.asset.json";
 import lavaVideo from "@/assets/lava-waterfall.mp4.asset.json";
 import phoneImg from "@/assets/showcase-phone.jpg";
 import tabletImg from "@/assets/showcase-tablet.jpg";
