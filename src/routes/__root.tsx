@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "VEGAM AI Studio" },
+      { name: "description", content: "Premium AI website builder for Malaysian and the global Tamil diaspora" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "VEGAM AI Studio" },
+      { property: "og:description", content: "Premium AI website builder for Malaysian and the global Tamil diaspora" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "VEGAM AI Studio" },
+      { name: "twitter:description", content: "Premium AI website builder for Malaysian and the global Tamil diaspora" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0e333263-df1d-4442-a3e8-ea55ef935bf1/id-preview-dba458f3--a66934f9-d1fe-42fb-8a39-6b01d14566e6.lovable.app-1778636064603.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0e333263-df1d-4442-a3e8-ea55ef935bf1/id-preview-dba458f3--a66934f9-d1fe-42fb-8a39-6b01d14566e6.lovable.app-1778636064603.png" },
     ],
     links: [
       {
