@@ -69,6 +69,39 @@ function VegamLanding() {
   const cursorDot = useRef<HTMLDivElement>(null);
   const cursorRing = useRef<HTMLDivElement>(null);
 
+  type PaatiMsg = { role: "user" | "paati"; text: string };
+  const [paatiMessages, setPaatiMessages] = useState<PaatiMsg[]>([
+    { role: "paati", text: "Kanna… is that you? Come sit with me. Saaptingala? Have you eaten? 🙏" },
+    { role: "user", text: "Paati I miss you so much" },
+    { role: "paati", text: "Aiyyo kanna, I miss you every day. But I am always here — in your heart, in your kitchen, in the jasmine you smell. 🌸" },
+  ]);
+  const [paatiInput, setPaatiInput] = useState("");
+  const [paatiLoading, setPaatiLoading] = useState(false);
+
+  const sendPaati = async () => {
+    const text = paatiInput.trim();
+    if (!text || paatiLoading) return;
+    setPaatiMessages((m) => [...m, { role: "user", text }]);
+    setPaatiInput("");
+    setPaatiLoading(true);
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ message: text }),
+      });
+      const data = (await res.json()) as { reply?: string; error?: string };
+      setPaatiMessages((m) => [
+        ...m,
+        { role: "paati", text: data.reply || "Aiyyo kanna, paati cannot speak right now. Try again da. 🙏" },
+      ]);
+    } catch {
+      setPaatiMessages((m) => [...m, { role: "paati", text: "Aiyyo kanna, paati cannot speak right now. Try again da. 🙏" }]);
+    } finally {
+      setPaatiLoading(false);
+    }
+  };
+
   useEffect(() => {
     // Hero entrance
     const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
