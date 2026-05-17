@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { HeroOrb } from "@/components/HeroOrb";
 import laptopImg from "@/assets/showcase-laptop.jpg";
