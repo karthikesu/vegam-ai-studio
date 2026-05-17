@@ -457,13 +457,31 @@ function VegamLanding() {
               </div>
             </div>
             <div className="flex min-h-[220px] flex-col gap-3 p-6">
-              <div className="max-w-[85%] self-start rounded-[4px_14px_14px_14px] border border-border bg-foreground/5 px-4 py-3 text-[13px] italic leading-[1.65] text-foreground/80">"Kanna… is that you? Come sit with me. Saaptingala? Have you eaten? 🙏"</div>
-              <div className="max-w-[85%] self-end rounded-[14px_4px_14px_14px] bg-accent px-4 py-3 text-[13px] text-accent-foreground">Paati I miss you so much</div>
-              <div className="max-w-[85%] self-start rounded-[4px_14px_14px_14px] border border-border bg-foreground/5 px-4 py-3 text-[13px] italic leading-[1.65] text-foreground/80">"Aiyyo kanna, I miss you every day. But I am always here — in your heart, in your kitchen, in the jasmine you smell. 🌸"</div>
+              {paatiMessages.map((m, i) =>
+                m.role === "paati" ? (
+                  <div key={i} className="max-w-[85%] self-start rounded-[4px_14px_14px_14px] border border-border bg-foreground/5 px-4 py-3 text-[13px] italic leading-[1.65] text-foreground/80">"{m.text}"</div>
+                ) : (
+                  <div key={i} className="max-w-[85%] self-end rounded-[14px_4px_14px_14px] bg-accent px-4 py-3 text-[13px] text-accent-foreground">{m.text}</div>
+                )
+              )}
+              {paatiLoading && (
+                <div className="max-w-[85%] self-start rounded-[4px_14px_14px_14px] border border-border bg-foreground/5 px-4 py-3 text-[13px] italic leading-[1.65] text-foreground/50">Paati is typing…</div>
+              )}
             </div>
             <div className="flex items-center gap-2 border-t border-border p-4">
-              <input className="flex-1 bg-transparent px-2 text-[13px] outline-none placeholder:text-foreground/20" placeholder="Type a message to Paati..." />
-              <button className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-base text-accent-foreground transition hover:scale-110 hover:bg-accent-glow">↑</button>
+              <input
+                value={paatiInput}
+                onChange={(e) => setPaatiInput(e.target.value)}
+                onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); void sendPaati(); } }}
+                disabled={paatiLoading}
+                className="flex-1 bg-transparent px-2 text-[13px] outline-none placeholder:text-foreground/20"
+                placeholder="Type a message to Paati..."
+              />
+              <button
+                onClick={() => void sendPaati()}
+                disabled={paatiLoading || !paatiInput.trim()}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-base text-accent-foreground transition hover:scale-110 hover:bg-accent-glow disabled:opacity-40 disabled:hover:scale-100"
+              >↑</button>
             </div>
           </div>
         </div>
