@@ -232,7 +232,7 @@ function VegamLanding() {
       <div ref={cursorRing} className="pointer-events-none fixed left-0 top-0 z-[9998] h-10 w-10 rounded-full border border-foreground/30 transition-[transform,border-color] duration-200 hidden md:block" />
 
       {/* NAV */}
-      <nav className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 md:py-7" style={{ mixBlendMode: "difference" }}>
+      <nav className="fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-border/40 bg-background/70 px-6 py-5 backdrop-blur-md md:px-12 md:py-6">
         <a href="#top" className="font-display text-lg font-extrabold uppercase tracking-[0.18em] text-foreground">VEGAM</a>
         <div className="flex items-center gap-6 md:gap-10">
           <a href="#features" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Features</a>
