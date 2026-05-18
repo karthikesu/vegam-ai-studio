@@ -50,9 +50,9 @@ const features = [
 const marquee = ["⚡ AI Website Builder", "🪔 Uyir AI Memorial", "💬 Sakthi WhatsApp Bot", "🌍 Global Payments", "🎓 Student Kalvi Tier", "🇲🇾 Made in Malaysia", "🔱 Murugan Vazhga"];
 
 const showcase = [
-  { img: phoneImg, brand: "Uyir AI", sub: "Tamil Memorial Platform", tags: ["Claude AI", "ElevenLabs", "D-ID"], badge: "World First", title: "Uyir AI Memorial", desc: "Preserve your elders forever. Upload their voice, photo, stories. Family talks to their AI — in Tamil, in their actual voice. Built for 77 million Tamils worldwide.", status: "Live Demo Available", cta: "Try it →" },
-  { img: laptopImg, brand: "Irama HK", sub: "Hotel Management System", tags: ["Real-time", "Supabase", "Live"], badge: "Running Live", title: "Irama Housekeeping System", desc: "Full hotel housekeeping management. Room status tracking, staff assignments, real-time updates. Currently deployed and running at Irama Hotel, Kuala Lumpur.", status: "Deployed at Irama KL", cta: "View Live →" },
-  { img: tabletImg, brand: "Irama Kiosk", sub: "Cafeteria Feedback System", tags: ["Tablet UI", "Analytics", "QR Codes"], badge: "Running Live", title: "Cafeteria Feedback Kiosk", desc: "Touch-screen feedback collection for Irama Hotel cafeteria. Real-time analytics dashboard, QR code sharing, GM reports. Live at Irama KL.", status: "Deployed at Irama KL", cta: "View Live →" },
+  { img: phoneImg, brand: "Uyir AI", sub: "Tamil Memorial Platform", tags: ["Claude AI", "ElevenLabs", "D-ID"], badge: "World First", title: "Uyir AI Memorial", desc: "Preserve your elders forever. Upload their voice, photo, stories. Family talks to their AI — in Tamil, in their actual voice. Built for 77 million Tamils worldwide.", status: "Live Demo Available", cta: "Try it →", href: "#paati" },
+  { img: laptopImg, brand: "Irama HK", sub: "Hotel Management System", tags: ["Real-time", "Supabase", "Live"], badge: "Running Live", title: "Irama Housekeeping System", desc: "Full hotel housekeeping management. Room status tracking, staff assignments, real-time updates. Currently deployed and running at Irama Hotel, Kuala Lumpur.", status: "Deployed at Irama KL", cta: "View Live →", href: "https://housekeeping-iramakl.github.io/irama-housekeeping/" },
+  { img: tabletImg, brand: "Irama Kiosk", sub: "Cafeteria Feedback System", tags: ["Tablet UI", "Analytics", "QR Codes"], badge: "Running Live", title: "Cafeteria Feedback Kiosk", desc: "Touch-screen feedback collection for Irama Hotel cafeteria. Real-time analytics dashboard, QR code sharing, GM reports. Live at Irama KL.", status: "Deployed at Irama KL", cta: "View Live →", href: "https://karthikesu.github.io/Irama/feedback.html" },
 ];
 
 const plans = [
@@ -502,7 +502,7 @@ function VegamLanding() {
 
           <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
             {showcase.map((s) => (
-              <div key={s.title} className="rv tilt group cursor-hover relative overflow-hidden rounded-2xl border border-border bg-surface/30 backdrop-blur-md transition-colors hover:border-border-strong" style={{opacity:0,transform:"translateY(40px)", transformStyle:"preserve-3d"}}>
+              <a key={s.title} href={s.href} target={s.href.startsWith("http") ? "_blank" : undefined} rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined} className="rv tilt group cursor-hover relative block overflow-hidden rounded-2xl border border-border bg-surface/30 backdrop-blur-md transition-colors hover:border-border-strong" style={{opacity:0,transform:"translateY(40px)", transformStyle:"preserve-3d"}}>
                 <div className="relative aspect-[4/3] overflow-hidden border-b border-border">
                   <img src={s.img} alt={s.title} loading="lazy" width={1024} height={768} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
@@ -523,7 +523,7 @@ function VegamLanding() {
                     <span className="text-foreground/60 transition group-hover:text-accent">{s.cta}</span>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 
