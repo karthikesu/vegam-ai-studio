@@ -562,11 +562,19 @@ function VegamLanding() {
                     <li key={f} className="flex items-start gap-2.5"><span className="text-accent/60">—</span>{f}</li>
                   ))}
                 </ul>
-                <button className={`mt-8 w-full rounded-full px-4 py-3 text-[11px] font-medium uppercase tracking-[0.12em] transition ${
-                  p.style === "solid" ? "bg-foreground text-background hover:bg-accent hover:text-accent-foreground" :
-                  p.style === "gold" ? "border border-gold/40 text-gold hover:bg-gold/10" :
-                  "border border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
-                }`}>{p.cta}</button>
+                {p.cta === "Get Started" ? (
+                  <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className={`mt-8 block w-full rounded-full px-4 py-3 text-center text-[11px] font-medium uppercase tracking-[0.12em] transition ${
+                    p.style === "solid" ? "bg-foreground text-background hover:bg-accent hover:text-accent-foreground" :
+                    p.style === "gold" ? "border border-gold/40 text-gold hover:bg-gold/10" :
+                    "border border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
+                  }`}>{p.cta}</a>
+                ) : (
+                  <button className={`mt-8 w-full rounded-full px-4 py-3 text-[11px] font-medium uppercase tracking-[0.12em] transition ${
+                    p.style === "solid" ? "bg-foreground text-background hover:bg-accent hover:text-accent-foreground" :
+                    p.style === "gold" ? "border border-gold/40 text-gold hover:bg-gold/10" :
+                    "border border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
+                  }`}>{p.cta}</button>
+                )}
               </div>
             ))}
           </div>
