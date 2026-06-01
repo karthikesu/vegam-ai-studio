@@ -238,7 +238,7 @@ function VegamLanding() {
           <a href="#features" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Features</a>
           <a href="#showcase" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Showcase</a>
           <a href="#pricing" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Pricing</a>
-          <button className="rounded-full border border-foreground/30 px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.18em] transition hover:bg-foreground hover:text-background">Get Started</button>
+          <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className="rounded-full border border-foreground/30 px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.18em] transition hover:bg-foreground hover:text-background">Get Started</a>
         </div>
       </nav>
 
