@@ -1,0 +1,17 @@
+# VEGAM
+
+> Malaysian AI website builder. Tell our AI your idea — watch a premium website build itself live in 60 seconds. Made in Malaysia, for the world.
+
+VEGAM (வேகம் — "Speed" in Tamil) is an AI website builder for Malaysian businesses and the global Tamil diaspora. We ship premium sites with built-in Sakthi AI chatbot, DuitNow / FPX / Stripe / Klarna payments, and tiered pricing including a student Kalvi plan.
+
+## Pages
+
+- [Home](/): Hero, features, product showcase, pricing tiers (Vidhai, Vēr, Maram, Kādu, Kalvi)
+- [About](/about): Our story, products (VEGAM.MY, UYIR AI, SAKTHI), first client (Irama Hotel KL), vision
+- [Templates](/templates): Website template categories (restaurant, beauty, fashion, services, education, healthcare) from RM79/month
+- [Contact](/contact): Contact form, email, WhatsApp, location in Rawang, Selangor, Malaysia
+
+## Optional
+
+- [Sitemap](/sitemap.xml)
+- [Robots](/robots.txt)

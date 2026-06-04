@@ -98,9 +98,9 @@ function TemplateCard({
         <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-accent/10 text-accent font-display font-bold text-lg mb-4">
           {index + 1}
         </div>
-        <h3 className="font-display text-xl font-semibold tracking-tight text-foreground mb-2">
+        <h2 className="font-display text-xl font-semibold tracking-tight text-foreground mb-2">
           {category}
-        </h3>
+        </h2>
         <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
       </div>
 

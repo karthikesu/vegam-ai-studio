@@ -92,6 +92,44 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://global-tamil-ai.lovable.app/#organization",
+              name: "VEGAM",
+              url: "https://global-tamil-ai.lovable.app/",
+              description:
+                "Malaysian AI website builder for businesses and the global Tamil diaspora.",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Rawang",
+                addressRegion: "Selangor",
+                addressCountry: "MY",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer support",
+                telephone: "+60176015125",
+                email: "karthikesuk@gmail.com",
+                areaServed: "MY",
+              },
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://global-tamil-ai.lovable.app/#website",
+              url: "https://global-tamil-ai.lovable.app/",
+              name: "VEGAM",
+              publisher: { "@id": "https://global-tamil-ai.lovable.app/#organization" },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,

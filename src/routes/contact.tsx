@@ -70,8 +70,9 @@ function ContactPage() {
           <Field label="Phone Number" name="phone" type="tel" value={form.phone} onChange={onChange} required />
 
           <div>
-            <label className="mb-2 block text-sm font-medium text-foreground/90">Business Type</label>
+            <label htmlFor="businessType" className="mb-2 block text-sm font-medium text-foreground/90">Business Type</label>
             <select
+              id="businessType"
               name="businessType"
               value={form.businessType}
               onChange={onChange}
@@ -89,8 +90,9 @@ function ContactPage() {
           </div>
 
           <div>
-            <label className="mb-2 block text-sm font-medium text-foreground/90">Message</label>
+            <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground/90">Message</label>
             <textarea
+              id="message"
               name="message"
               value={form.message}
               onChange={onChange}
@@ -152,8 +154,9 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-sm font-medium text-foreground/90">{label}</label>
+      <label htmlFor={name} className="mb-2 block text-sm font-medium text-foreground/90">{label}</label>
       <input
+        id={name}
         type={type}
         name={name}
         value={value}
