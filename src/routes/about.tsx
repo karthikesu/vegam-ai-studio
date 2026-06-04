@@ -45,9 +45,9 @@ function AboutPage() {
         <div className="glass rounded-2xl border border-border p-8 md:p-10">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px flex-1 bg-border" />
-            <span className="text-xs uppercase tracking-widest text-muted-foreground font-medium">
+            <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-medium m-0">
               Our Story
-            </span>
+            </h2>
             <div className="h-px flex-1 bg-border" />
           </div>
           <p className="text-foreground/90 leading-relaxed text-lg text-balance">
@@ -60,9 +60,9 @@ function AboutPage() {
       <section className="relative mx-auto max-w-3xl px-6 pb-20">
         <div className="flex items-center gap-3 mb-8">
           <div className="h-px flex-1 bg-border" />
-          <span className="text-xs uppercase tracking-widest text-muted-foreground font-medium">
+          <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-medium m-0">
             Our Products
-          </span>
+          </h2>
           <div className="h-px flex-1 bg-border" />
         </div>
 
@@ -90,9 +90,9 @@ function AboutPage() {
         <div className="glass rounded-2xl border border-border p-8 md:p-10 text-center">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px flex-1 bg-border" />
-            <span className="text-xs uppercase tracking-widest text-muted-foreground font-medium">
+            <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-medium m-0">
               Our First Client
-            </span>
+            </h2>
             <div className="h-px flex-1 bg-border" />
           </div>
           <p className="text-foreground/90 leading-relaxed text-lg text-balance">
@@ -106,9 +106,9 @@ function AboutPage() {
         <div className="rounded-2xl border border-border bg-gradient-ember p-8 md:p-10 text-center">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px flex-1 bg-background/20" />
-            <span className="text-xs uppercase tracking-widest text-background/70 font-medium">
+            <h2 className="text-xs uppercase tracking-widest text-background/70 font-medium m-0">
               Our Vision
-            </span>
+            </h2>
             <div className="h-px flex-1 bg-background/20" />
           </div>
           <p className="text-background leading-relaxed text-xl font-display font-semibold tracking-tight text-balance">

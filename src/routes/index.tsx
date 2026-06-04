@@ -25,13 +25,36 @@ export const Route = createFileRoute("/")({
           "Premium AI website builder. Made in Malaysia. For the world.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://global-tamil-ai.lovable.app/" },
     ],
     links: [
+      { rel: "canonical", href: "https://global-tamil-ai.lovable.app/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "VEGAM AI Website Builder",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web",
+          description:
+            "AI website builder for Malaysia and the global Tamil diaspora. Build a premium website in 60 seconds.",
+          url: "https://global-tamil-ai.lovable.app/",
+          offers: [
+            { "@type": "Offer", name: "VIDHAI (Starter)", price: "99", priceCurrency: "MYR" },
+            { "@type": "Offer", name: "VĒR (Most Popular)", price: "299", priceCurrency: "MYR" },
+            { "@type": "Offer", name: "MARAM (Business)", price: "599", priceCurrency: "MYR" },
+            { "@type": "Offer", name: "KALVI (Student)", price: "29", priceCurrency: "MYR" },
+          ],
+        }),
       },
     ],
   }),
@@ -480,6 +503,7 @@ function VegamLanding() {
               <button
                 onClick={() => void sendPaati()}
                 disabled={paatiLoading || !paatiInput.trim()}
+                aria-label="Send message"
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-base text-accent-foreground transition hover:scale-110 hover:bg-accent-glow disabled:opacity-40 disabled:hover:scale-100"
               >↑</button>
             </div>
