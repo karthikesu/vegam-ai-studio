@@ -76,6 +76,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "VEGAM AI Studio" },
       { name: "description", content: "Premium AI website builder for Malaysian and the global Tamil diaspora" },
       { name: "author", content: "Lovable" },
+      { name: "google-site-verification", content: "S8JPiE9pt2TDZMh8v3qOOWF4-TfBU5gUZ2WJv_jWIj0" },
       { property: "og:title", content: "VEGAM AI Studio" },
       { property: "og:description", content: "Premium AI website builder for Malaysian and the global Tamil diaspora" },
       { property: "og:type", content: "website" },
