@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { HeroOrb } from "@/components/HeroOrb";
@@ -261,6 +262,9 @@ function VegamLanding() {
           <a href="#features" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Features</a>
           <a href="#showcase" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Showcase</a>
           <a href="#pricing" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Pricing</a>
+          <Link to="/templates" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Templates</Link>
+          <Link to="/about" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">About</Link>
+          <Link to="/contact" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Contact</Link>
           <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className="rounded-full border border-foreground/30 px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.18em] transition hover:bg-foreground hover:text-background">Get Started</a>
         </div>
       </nav>
@@ -629,15 +633,52 @@ function VegamLanding() {
               <p className="mt-3 max-w-[280px] text-[13px] leading-[1.7] text-muted-foreground">AI-powered website builder for Malaysian businesses and the global Tamil diaspora. Built in Malaysia. For the world.</p>
             </div>
             <div className="flex flex-wrap gap-12 md:gap-16">
-              {[
-                { h: "Product", l: ["Features","Pricing","Templates","Roadmap"] },
-                { h: "Templates", l: ["Uyir AI Memorial","Restaurant","E-Commerce","Portfolio"] },
-                { h: "Company", l: ["About","Blog","Contact","vegam.my"] },
-              ].map((c) => (
+              {([
+                {
+                  h: "Product",
+                  l: [
+                    { label: "Features", href: "/#features" },
+                    { label: "Pricing", href: "/#pricing" },
+                    { label: "Templates", to: "/templates" as const },
+                    { label: "Roadmap", to: "/roadmap" as const },
+                  ],
+                },
+                {
+                  h: "Templates",
+                  l: [
+                    { label: "Uyir AI Memorial", href: "/#paati" },
+                    { label: "Restaurant", to: "/templates" as const },
+                    { label: "E-Commerce", to: "/templates" as const },
+                    { label: "Portfolio", to: "/templates" as const },
+                  ],
+                },
+                {
+                  h: "Company",
+                  l: [
+                    { label: "About", to: "/about" as const },
+                    { label: "Roadmap", to: "/roadmap" as const },
+                    { label: "Contact", to: "/contact" as const },
+                    { label: "vegam.my", href: "https://vegam.my", external: true },
+                  ],
+                },
+              ]).map((c) => (
                 <div key={c.h}>
                   <h4 className="font-display text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/40">{c.h}</h4>
                   <div className="mt-4 flex flex-col gap-2.5">
-                    {c.l.map((x) => <a key={x} href="#" className="text-[13px] text-muted-foreground transition hover:text-foreground">{x}</a>)}
+                    {c.l.map((x) =>
+                      "to" in x && x.to ? (
+                        <Link key={x.label} to={x.to} className="text-[13px] text-muted-foreground transition hover:text-foreground">{x.label}</Link>
+                      ) : (
+                        <a
+                          key={x.label}
+                          href={x.href}
+                          {...((x as { external?: boolean }).external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                          className="text-[13px] text-muted-foreground transition hover:text-foreground"
+                        >
+                          {x.label}
+                        </a>
+                      ),
+                    )}
                   </div>
                 </div>
               ))}
