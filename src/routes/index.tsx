@@ -74,20 +74,20 @@ const features = [
 const marquee = ["⚡ AI Website Builder", "🪔 Uyir AI Memorial", "💬 Sakthi WhatsApp Bot", "🌍 Global Payments", "🎓 Student Kalvi Tier", "🇲🇾 Made in Malaysia", "🔱 Murugan Vazhga"];
 
 const showcase = [
-  { img: phoneImg, brand: "Uyir AI", sub: "Tamil Memorial Platform", tags: ["Claude AI", "ElevenLabs", "D-ID"], badge: "World First", title: "Uyir AI Memorial", desc: "Preserve your elders forever", href: "#paati", status: "Live", cta: "Demo" },
-  { img: laptopImg, brand: "Irama HK", sub: "Hotel Management System", tags: ["Real-time", "Supabase", "Live"], badge: "Running Live", title: "Irama Housekeeping System", desc: "Full hotel housekeeping suite", href: "https://irama.hk", status: "Live", cta: "View Site" },
-  { img: tabletImg, brand: "Irama Kiosk", sub: "Cafeteria Feedback System", tags: ["Tablet UI", "Analytics", "QR Codes"], badge: "Running Live", title: "Cafeteria Feedback Kiosk", desc: "Touch-screen feedback collection", href: "https://irama.hk", status: "Live", cta: "View Site" },
+  { img: phoneImg, brand: "Uyir AI", sub: "Tamil Memorial Platform", tags: ["Claude AI", "ElevenLabs", "D-ID"], badge: "World First", title: "Uyir AI Memorial", desc: "Preserve your elders forever", h: "", href: "", status: "", cta: "" },
+  { img: laptopImg, brand: "Irama HK", sub: "Hotel Management System", tags: ["Real-time", "Supabase", "Live"], badge: "Running Live", title: "Irama Housekeeping System", desc: "Full hotel housekeeping", h: "", href: "", status: "", cta: "" },
+  { img: tabletImg, brand: "Irama Kiosk", sub: "Cafeteria Feedback System", tags: ["Tablet UI", "Analytics", "QR Codes"], badge: "Running Live", title: "Cafeteria Feedback Kiosk", desc: "Touch-screen feedback", h: "", href: "", status: "", cta: "" },
 ];
 
 const plans = [
-  { tier: "Starter", name: "VIDHAI", tamil: "விதை · The Seed", price: "RM 99", per: "per month", feats: [["1 Website", "AI Builder Basic"], ["5 Pages", "vegam.my Subdomain"], ["Sakthi AI Chatbot", "Email Support"]], cta: "Get Started", featured: false, style: "outline" },
-  { tier: "Most Popular", name: "VĒR", tamil: "வேர் · The Root", price: "RM 299", per: "per month", feats: [["3 Websites", "AI Builder Full"], ["Unlimited Pages", "Custom Domain"], ["Sakthi AI Chatbot", "Priority Support"], ["Analytics Dashboard"]], cta: "Get Started", featured: true, style: "solid" },
-  { tier: "Business", name: "MARAM", tamil: "மரம் · The Tree", price: "RM 599", per: "per month", feats: [["10 Websites", "AI Builder Pro"], ["E-Commerce", "Global Payments"], ["Klarna + Afterpay", "API Access"], ["Dedicated Manager"]], cta: "Contact Sales", featured: false, style: "outline" },
-  { tier: "Enterprise", name: "KĀDU", tamil: "காடு · The Forest", price: "Custom", per: "tailored pricing", feats: [["Unlimited Sites", "Dedicated AI"], ["White Label", "API Access"], ["Custom Features", "SLA Guarantee"]], cta: "Contact Sales", featured: false, style: "outline" },
-  { tier: "🎓 Student", name: "KALVI", tamil: "கல்வி · Education", price: "RM 29", per: "/ month · 70% off", feats: [["2 Websites", "AI Builder Full"], ["Portfolio Template", "Student ID Required"], ["Sakthi AI Chatbot", "Learning Resources"]], cta: "Apply Now", featured: false, style: "gold" },
+  { tier: "Starter", name: "VIDHAI", tamil: "விதை · The Seed", price: "RM 99", per: "per month", feats: [["1 Website", "AI Builder Basic"], ["5 Pages", "vegam.my Subdomain"], ["Sakthi AI Chat"]], featured: false, style: "", cta: "", },
+  { tier: "Most Popular", name: "VĒR", tamil: "வேர் · The Root", price: "RM 299", per: "per month", feats: [["3 Websites", "AI Builder Full"], ["Unlimited Pages", "Custom Domain"], ["Sakthi"]], featured: true, style: "", cta: "", },
+  { tier: "Business", name: "MARAM", tamil: "மரம் · The Tree", price: "RM 599", per: "per month", feats: [["10 Websites", "AI Builder Pro"], ["E-Commerce", "Global Payments"], ["Klarna +"]], featured: false, style: "", cta: "", },
+  { tier: "Enterprise", name: "KĀDU", tamil: "காடு · The Forest", price: "Custom", per: "tailored pricing", feats: [["Unlimited Sites", "Dedicated AI"], ["White Label", "API Access"]], featured: false, style: "", cta: "", },
+  { tier: "🎓 Student", name: "KALVI", tamil: "கல்வி · Education", price: "RM 29", per: "/ month · 70% off", feats: [["2 Websites", "AI Builder Full"], ["Portfolio Template", "Student ID"]], featured: false, style: "", cta: "", },
 ];
 
-const payments = ["🇲🇾 FPX / DuitNow","🟢 GrabPay Later","🔵 Atome 3x","💳 Visa / Mastercard","🍎 Apple Pay","🤖 Google Pay","🌍 Klarna (EU/UK)","🇦🇺 Afterpay","🇦🇪 Tabby (GCC)"];
+const payments = ["🇲🇾 FPX / DuitNow","🟢 GrabPay Later","🔵 Atome 3x","💳 Visa / Mastercard","🍎 Apple Pay","🤖 Google Pay","🌍 Klarna (EU/UK)","🇦🇺 Afterpay","🇦🇪 Tabby"];
 
 function VegamLanding() {
   const cursorDot = useRef<HTMLDivElement>(null);
@@ -257,10 +257,7 @@ function VegamLanding() {
 
       {/* NAV */}
       <nav className="fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-border/40 bg-background/70 px-6 py-5 backdrop-blur-md md:px-12 md:py-6">
-        <a href="#top" className="flex items-center gap-3">
-          <img src="/VEGAM.LOGO.png" alt="VEGAM" className="h-8 w-auto" />
-          <span className="font-display text-lg font-extrabold uppercase tracking-[0.18em] text-foreground">VEGAM</span>
-        </a>
+        <a href="#top" className="flex items-center gap-3"><img src="/VEGAM.LOGO.png" alt="VEGAM" className="h-8 w-auto" /><span className="font-display text-lg font-extrabold uppercase tracking-[0.18em] text-foreground">VEGAM</span></a>
         <div className="flex items-center gap-6 md:gap-10">
           <a href="#features" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Features</a>
           <a href="#showcase" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Showcase</a>
@@ -268,7 +265,7 @@ function VegamLanding() {
           <Link to="/templates" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Templates</Link>
           <Link to="/about" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">About</Link>
           <Link to="/contact" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Contact</Link>
-          <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className="rounded-full border border-foreground/20 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.15em] text-foreground transition hover:border-foreground/60 hover:bg-foreground/5">WhatsApp</a>
+          <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className="rounded-full border border-foreground/30 px-5 py-2.5 text-[11px] tracking-wide text-foreground transition hover:border-foreground hover:bg-foreground hover:text-background">WhatsApp</a>
         </div>
       </nav>
 
@@ -302,7 +299,7 @@ function VegamLanding() {
         </p>
 
         <div className="hero-ctas mt-12 flex flex-wrap items-center justify-center gap-3 opacity-0">
-          <button className="rounded-full bg-foreground px-9 py-4 text-[13px] font-medium tracking-wide text-background transition-all hover:scale-[1.04] hover:bg-accent hover:text-accent-foreground">Get Started</button>
+          <button className="rounded-full bg-foreground px-9 py-4 text-[13px] font-medium tracking-wide text-background transition-all hover:scale-[1.04] hover:bg-accent hover:text-accent-foreground">Build Now</button>
           <button className="rounded-full border border-border-strong px-9 py-4 text-[13px] tracking-wide transition-all hover:scale-[1.04] hover:border-foreground/60">See Live Demo</button>
         </div>
         </div>
@@ -357,7 +354,7 @@ function VegamLanding() {
               />
 
               {/* READABLE MOCK WEBSITE OVERLAY — translucent so lava/orb bleed through */}
-              <div className="pointer-events-none absolute left-1/2 top-1/2 hidden w-[min(720px,82%)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-foreground/15 bg-background/25 p-8 backdrop-blur-md lg:block">
+              <div className="pointer-events-none absolute left-1/2 top-1/2 hidden w-[min(720px,82%)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-foreground/15 bg-background/25 p-8 backdrop-blur-sm md:block" style={{ boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}>
                 {/* faux browser chrome */}
                 <div className="flex items-center gap-2 border-b border-border pb-3">
                   <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
@@ -464,11 +461,11 @@ function VegamLanding() {
               Their voice. Their face. Their stories. Preserved forever. Your family talks to them — in Tamil, in their actual voice, through AI. Built for 77 million Tamil families worldwide.
             </p>
             <ul className="rv mt-8 flex flex-col gap-3 text-[13px] text-foreground/60" style={{opacity:0,transform:"translateX(-40px)"}}>
-              {["AI writes their life story from your memories","ElevenLabs voice clone — hear them again","D-ID avatar — see them speak in video","Claude AI chat — talk to them, they remember"].map((x) => (
+              {["AI writes their life story from your memories","ElevenLabs voice clone — hear them again","D-ID avatar — see them speak in video","Claude AI chat — talk to them, they remember"].map((x) =>
                 <li key={x} className="flex items-center gap-3 border-b border-border pb-3 last:border-0"><span className="h-px w-2 bg-accent" />{x}</li>
-              ))}
+              )}
             </ul>
-            <button className="rv mt-9 rounded-full bg-gradient-ember px-8 py-4 text-[12px] font-medium uppercase tracking-[0.15em] text-accent-foreground shadow-ember transition hover:scale-[1.02] hover:shadow-ember-lg" style={{opacity:0,transform:"translateX(-40px)"}}>
+            <button className="rv mt-9 rounded-full bg-gradient-ember px-8 py-4 text-[12px] font-medium uppercase tracking-[0.15em] text-accent-foreground shadow-ember transition hover:scale-[1.02] hover:shadow-ember-lg">
               Get This Template
             </button>
           </div>
@@ -477,7 +474,7 @@ function VegamLanding() {
           <div className="rv glass relative overflow-hidden rounded-3xl border border-border shadow-soft" style={{opacity:0,transform:"translateX(40px)"}}>
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
             <div className="flex items-center gap-4 border-b border-border p-7">
-              <div className="animate-ember-glow flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-accent/40 text-2xl" style={{ background: "radial-gradient(circle at 30% 30%, oklch(0.68 0.22 38 / 0.8), transparent 60%)" }}>
+              <div className="animate-ember-glow flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-accent/40 text-2xl" style={{ background: "radial-gradient(circle at 30% 30%, oklch(0.65 0.25 38 / 0.6), oklch(0.4 0.15 38 / 0.2))" }}>
                 🙏
               </div>
               <div>
@@ -513,7 +510,7 @@ function VegamLanding() {
                 onClick={() => void sendPaati()}
                 disabled={paatiLoading || !paatiInput.trim()}
                 aria-label="Send message"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-base text-accent-foreground transition hover:scale-110 hover:bg-accent-glow disabled:opacity-40 disabled:hover:scale-100 disabled:hover:bg-accent"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-base text-accent-foreground transition hover:scale-110 hover:bg-accent-glow disabled:opacity-40 disabled:hover:scale-100"
               >↑</button>
             </div>
           </div>
@@ -535,7 +532,7 @@ function VegamLanding() {
 
           <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
             {showcase.map((s) => (
-              <a key={s.title} href={s.href} target={s.href.startsWith("http") ? "_blank" : undefined} rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined} className="rv tilt group flex flex-col overflow-hidden rounded-2xl border border-border transition hover:border-accent/60" style={{opacity:0,transform:"translateY(40px)"}}>
+              <a key={s.title} href={s.href} target={s.href.startsWith("http") ? "_blank" : undefined} rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined} className="rv tilt group flex flex-col overflow-hidden rounded-2xl border border-border transition-all duration-500 hover:border-accent/50 hover:shadow-lg" style={{opacity:0,transform:"translateY(40px)"}}>
                 <div className="relative aspect-[4/3] overflow-hidden border-b border-border">
                   <img src={s.img} alt={s.title} loading="lazy" width={1024} height={768} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
@@ -596,7 +593,7 @@ function VegamLanding() {
                   ))}
                 </ul>
                 {p.cta === "Get Started" ? (
-                  <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className={`mt-8 block w-full rounded-full px-4 py-3 text-[11px] font-medium uppercase tracking-[0.12em] transition ${
+                  <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className={`mt-8 block w-full rounded-full px-4 py-3 text-center text-[11px] font-medium uppercase tracking-[0.12em] transition ${
                     p.style === "solid" ? "bg-foreground text-background hover:bg-accent hover:text-accent-foreground" :
                     p.style === "gold" ? "border border-gold/40 text-gold hover:bg-gold/10" :
                     "border border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
