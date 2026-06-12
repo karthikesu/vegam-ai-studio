@@ -2,11 +2,7 @@
   "buildCommand": "bun run build",
   "installCommand": "bun install",
   "framework": null,
-  "outputDirectory": "dist/server",
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/server/server.js"
-    }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/server.js" }
   ]
 }
