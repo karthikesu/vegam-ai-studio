@@ -3,11 +3,6 @@
   "installCommand": "bun install",
   "framework": null,
   "outputDirectory": "dist/server",
-  "functions": {
-    "dist/server/server.js": {
-      "runtime": "nodejs@22"
-    }
-  },
   "routes": [
     {
       "src": "/(.*)",
