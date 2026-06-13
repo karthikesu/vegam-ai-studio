@@ -50,9 +50,9 @@ export const Route = createFileRoute("/")({
             "AI website builder for Malaysia and the global Tamil diaspora. Build a premium website in 60 seconds.",
           url: "https://vegam.my/",
           offers: [
-            { "@type": "Offer", name: "VIDHAI (Starter)", price: "99", priceCurrency: "MYR" },
-            { "@type": "Offer", name: "VĒR (Most Popular)", price: "299", priceCurrency: "MYR" },
-            { "@type": "Offer", name: "MARAM (Business)", price: "599", priceCurrency: "MYR" },
+            { "@type": "Offer", name: "VIDHAI (Starter)", price: "79", priceCurrency: "MYR" },
+            { "@type": "Offer", name: "VĒR (Most Popular)", price: "199", priceCurrency: "MYR" },
+            { "@type": "Offer", name: "MARAM (Business)", price: "399", priceCurrency: "MYR" },
             { "@type": "Offer", name: "KALVI (Student)", price: "29", priceCurrency: "MYR" },
           ],
         }),
@@ -74,17 +74,17 @@ const features = [
 const marquee = ["⚡ AI Website Builder", "🪔 Uyir AI Memorial", "💬 Sakthi WhatsApp Bot", "🌍 Global Payments", "🎓 Student Kalvi Tier", "🇲🇾 Made in Malaysia", "🔱 Murugan Vazhga"];
 
 const showcase = [
-  { img: phoneImg, brand: "Uyir AI", sub: "Tamil Memorial Platform", tags: ["Claude AI", "ElevenLabs", "D-ID"], badge: "World First", title: "Uyir AI Memorial", desc: "Preserve your elders forever", h[...]
-  { img: laptopImg, brand: "Irama HK", sub: "Hotel Management System", tags: ["Real-time", "Supabase", "Live"], badge: "Running Live", title: "Irama Housekeeping System", desc: "Full hotel housekeepin[...]
-  { img: tabletImg, brand: "Irama Kiosk", sub: "Cafeteria Feedback System", tags: ["Tablet UI", "Analytics", "QR Codes"], badge: "Running Live", title: "Cafeteria Feedback Kiosk", desc: "Touch-screen [...]
+  { img: phoneImg, brand: "Uyir AI", sub: "Tamil Memorial Platform", tags: ["Claude AI", "ElevenLabs", "D-ID"], badge: "World First", title: "Uyir AI Memorial", desc: "Preserve your elders forever", href: "#paati" },
+  { img: laptopImg, brand: "Irama HK", sub: "Hotel Management System", tags: ["Real-time", "Supabase", "Live"], badge: "Running Live", title: "Irama Housekeeping System", desc: "Full hotel housekeeping ops", href: "https://irama-housekeeping.vercel.app", status: "Live", cta: "View System" },
+  { img: tabletImg, brand: "Irama Kiosk", sub: "Cafeteria Feedback System", tags: ["Tablet UI", "Analytics", "QR Codes"], badge: "Running Live", title: "Cafeteria Feedback Kiosk", desc: "Touch-screen satisfaction surveys", href: "https://irama-kiosk.vercel.app", status: "Live", cta: "View Kiosk" },
 ];
 
 const plans = [
-  { tier: "Starter", name: "VIDHAI", tamil: "விதை · The Seed", price: "RM 99", per: "per month", feats: [["1 Website", "AI Builder Basic"], ["5 Pages", "vegam.my Subdomain"], ["Sakthi AI Chat[...]
-  { tier: "Most Popular", name: "VĒR", tamil: "வேர் · The Root", price: "RM 299", per: "per month", feats: [["3 Websites", "AI Builder Full"], ["Unlimited Pages", "Custom Domain"], ["Sakthi"[...]
-  { tier: "Business", name: "MARAM", tamil: "மரம் · The Tree", price: "RM 599", per: "per month", feats: [["10 Websites", "AI Builder Pro"], ["E-Commerce", "Global Payments"], ["Klarna +"]], [...]
-  { tier: "Enterprise", name: "KĀDU", tamil: "காடு · The Forest", price: "Custom", per: "tailored pricing", feats: [["Unlimited Sites", "Dedicated AI"], ["White Label", "API Access"]], featu[...]
-  { tier: "🎓 Student", name: "KALVI", tamil: "கல்வி · Education", price: "RM 29", per: "/ month · 70% off", feats: [["2 Websites", "AI Builder Full"], ["Portfolio Template", "Student ID[...]
+  { tier: "Starter", name: "VIDHAI", tamil: "விதை · The Seed", price: "RM 79", per: "per month", feats: [["1 Website", "AI Builder Basic"], ["5 Pages", "vegam.my Subdomain"], ["Sakthi AI Chat", "Basic"], ["Email Support"]], cta: "Get Started" },
+  { tier: "Most Popular", name: "VĒR", tamil: "வேர் · The Root", price: "RM 199", per: "per month", feats: [["3 Websites", "AI Builder Full"], ["Unlimited Pages", "Custom Domain"], ["Sakthi AI Chat", "Pro"], ["Priority Support"]], featured: true, style: "solid", cta: "Get Started" },
+  { tier: "Business", name: "MARAM", tamil: "மரம் · The Tree", price: "RM 399", per: "per month", feats: [["10 Websites", "AI Builder Pro"], ["E-Commerce", "Global Payments"], ["Klarna + Afterpay"], ["Dedicated Manager"]], style: "solid", cta: "Get Started" },
+  { tier: "Enterprise", name: "KĀDU", tamil: "காடு · The Forest", price: "Custom", per: "tailored pricing", feats: [["Unlimited Sites", "Dedicated AI"], ["White Label", "API Access"], ["Custom Integrations"], ["24/7 Support"]], cta: "Contact Sales" },
+  { tier: "🎓 Student", name: "KALVI", tamil: "கல்வி · Education", price: "RM 29", per: "/ month · 70% off", feats: [["2 Websites", "AI Builder Full"], ["Portfolio Template", "Student Verified"], ["Priority Onboarding"], ["Community Access"]], style: "gold", cta: "Get Started" },
 ];
 
 const payments = ["🇲🇾 FPX / DuitNow","🟢 GrabPay Later","🔵 Atome 3x","💳 Visa / Mastercard","🍎 Apple Pay","🤖 Google Pay","🌍 Klarna (EU/UK)","🇦🇺 Afterpay","🇦🇪 Tabby"];
@@ -243,9 +243,9 @@ function VegamLanding() {
       {/* Liquid ember blobs */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-60">
         <div className="goo absolute inset-0">
-          <div className="animate-blob-1 absolute left-[8%] top-[18%] h-[380px] w-[380px] rounded-full" style={{ background: "radial-gradient(circle, oklch(0.68 0.22 38 / 0.55), transparent 70%)" }} /[...]
-          <div className="animate-blob-2 absolute right-[6%] top-[42%] h-[440px] w-[440px] rounded-full" style={{ background: "radial-gradient(circle, oklch(0.78 0.19 50 / 0.45), transparent 70%)" [...]
-          <div className="animate-blob-3 absolute left-[32%] bottom-[8%] h-[360px] w-[360px] rounded-full" style={{ background: "radial-gradient(circle, oklch(0.55 0.18 280 / 0.35), transparent 70%)" [...]
+          <div className="animate-blob-1 absolute left-[8%] top-[18%] h-[380px] w-[380px] rounded-full" style={{ background: "radial-gradient(circle, oklch(0.68 0.22 38 / 0.55), transparent 70%)" }} />
+          <div className="animate-blob-2 absolute right-[6%] top-[42%] h-[440px] w-[440px] rounded-full" style={{ background: "radial-gradient(circle, oklch(0.78 0.19 50 / 0.45), transparent 70%)" }} />
+          <div className="animate-blob-3 absolute left-[32%] bottom-[8%] h-[360px] w-[360px] rounded-full" style={{ background: "radial-gradient(circle, oklch(0.55 0.18 280 / 0.35), transparent 70%)" }} />
         </div>
       </div>
 
@@ -253,11 +253,11 @@ function VegamLanding() {
 
       {/* Custom cursor */}
       <div ref={cursorDot} className="pointer-events-none fixed left-0 top-0 z-[9999] h-[5px] w-[5px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground hidden md:block" />
-      <div ref={cursorRing} className="pointer-events-none fixed left-0 top-0 z-[9998] h-10 w-10 rounded-full border border-foreground/30 transition-[transform,border-color] duration-200 hidden md:blo[...]
+      <div ref={cursorRing} className="pointer-events-none fixed left-0 top-0 z-[9998] h-10 w-10 rounded-full border border-foreground/30 transition-[transform,border-color] duration-200 hidden md:block" />
 
       {/* NAV */}
       <nav className="fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-border/40 bg-background/70 px-6 py-5 backdrop-blur-md md:px-12 md:py-6">
-        <a href="#top" className="flex items-center gap-3"><img src="/VEGAM.LOGO.png" alt="VEGAM" className="h-8 w-auto" /><span className="font-display text-lg font-extrabold uppercase tracking-[0.18[...]
+        <a href="#top" className="flex items-center gap-3"><img src="/VEGAM.LOGO.png" alt="VEGAM" className="h-8 w-auto" /><span className="font-display text-lg font-extrabold uppercase tracking-[0.18em] hidden sm:inline">VEGAM</span></a>
         <div className="flex items-center gap-6 md:gap-10">
           <a href="#features" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Features</a>
           <a href="#showcase" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Showcase</a>
@@ -265,7 +265,7 @@ function VegamLanding() {
           <Link to="/templates" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Templates</Link>
           <Link to="/about" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">About</Link>
           <Link to="/contact" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Contact</Link>
-          <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className="rounded-full border border-foreground/[...]
+          <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className="rounded-full border border-foreground/30 px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.15em] text-foreground/60 transition hover:border-foreground hover:text-foreground">Contact</a>
         </div>
       </nav>
 
@@ -276,7 +276,7 @@ function VegamLanding() {
           <HeroOrb />
         </div>
         {/* radial dim mask so text reads */}
-        <div className="pointer-events-none absolute inset-0 z-[1]" style={{ background: "radial-gradient(ellipse at center, transparent 0%, oklch(0.04 0 0 / 0.5) 50%, oklch(0.04 0 0 / 0.85) 100%)" }}[...]
+        <div className="pointer-events-none absolute inset-0 z-[1]" style={{ background: "radial-gradient(ellipse at center, transparent 0%, oklch(0.04 0 0 / 0.5) 50%, oklch(0.04 0 0 / 0.85) 100%)" }} />
 
         <div className="relative z-10 flex flex-col items-center">
         <div className="hero-label flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-muted-foreground opacity-0">
@@ -299,7 +299,7 @@ function VegamLanding() {
         </p>
 
         <div className="hero-ctas mt-12 flex flex-wrap items-center justify-center gap-3 opacity-0">
-          <button className="rounded-full bg-foreground px-9 py-4 text-[13px] font-medium tracking-wide text-background transition-all hover:scale-[1.04] hover:bg-accent hover:text-accent-foreground">[...]
+          <button className="rounded-full bg-foreground px-9 py-4 text-[13px] font-medium tracking-wide text-background transition-all hover:scale-[1.04] hover:bg-accent hover:text-accent-foreground">Start Free Trial</button>
           <button className="rounded-full border border-border-strong px-9 py-4 text-[13px] tracking-wide transition-all hover:scale-[1.04] hover:border-foreground/60">See Live Demo</button>
         </div>
         </div>
@@ -334,7 +334,7 @@ function VegamLanding() {
 
           <div className="rv tilt relative mx-auto mt-20 max-w-6xl" style={{opacity:0,transform:"translateY(60px)", transformStyle:"preserve-3d"}}>
             {/* Ember halo bleeding into page */}
-            <div className="pointer-events-none absolute -inset-24 -z-10 opacity-80 blur-3xl" style={{ background: "radial-gradient(ellipse at center, oklch(0.68 0.22 38 / 0.45), transparent 65%)" }} [...]
+            <div className="pointer-events-none absolute -inset-24 -z-10 opacity-80 blur-3xl" style={{ background: "radial-gradient(ellipse at center, oklch(0.68 0.22 38 / 0.45), transparent 65%)" }} />
             {/* Frameless transparent video — black is keyed out so lava + orb show through */}
             <div className="relative">
               <video
@@ -354,7 +354,7 @@ function VegamLanding() {
               />
 
               {/* READABLE MOCK WEBSITE OVERLAY — translucent so lava/orb bleed through */}
-              <div className="pointer-events-none absolute left-1/2 top-1/2 hidden w-[min(720px,82%)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-foreground/15 bg-background/25 p-8 bac[...]
+              <div className="pointer-events-none absolute left-1/2 top-1/2 hidden w-[min(720px,82%)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-foreground/15 bg-background/25 p-8 backdrop-blur-md md:block">
                 {/* faux browser chrome */}
                 <div className="flex items-center gap-2 border-b border-border pb-3">
                   <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
@@ -395,7 +395,7 @@ function VegamLanding() {
             </div>
 
             {/* Floating spec chips */}
-            <div className="absolute -left-4 top-12 hidden rounded-full border border-border-strong glass px-4 py-2 text-[11px] tracking-wide text-foreground/80 shadow-soft md:flex md:items-center md:[...]
+            <div className="absolute -left-4 top-12 hidden rounded-full border border-border-strong glass px-4 py-2 text-[11px] tracking-wide text-foreground/80 shadow-soft md:flex md:items-center md:gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-jade animate-status-pulse" /> Live preview
             </div>
             <div className="absolute -right-4 top-32 hidden rounded-full border border-border-strong glass px-4 py-2 text-[11px] tracking-wide text-foreground/80 shadow-soft md:block">
@@ -461,11 +461,11 @@ function VegamLanding() {
               Their voice. Their face. Their stories. Preserved forever. Your family talks to them — in Tamil, in their actual voice, through AI. Built for 77 million Tamil families worldwide.
             </p>
             <ul className="rv mt-8 flex flex-col gap-3 text-[13px] text-foreground/60" style={{opacity:0,transform:"translateX(-40px)"}}>
-              {["AI writes their life story from your memories","ElevenLabs voice clone — hear them again","D-ID avatar — see them speak in video","Claude AI chat — talk to them, they remember"][...]
+              {["AI writes their life story from your memories","ElevenLabs voice clone — hear them again","D-ID avatar — see them speak in video","Claude AI chat — talk to them, they remember"].map((x) => (
                 <li key={x} className="flex items-center gap-3 border-b border-border pb-3 last:border-0"><span className="h-px w-2 bg-accent" />{x}</li>
-              )}
+              ))}
             </ul>
-            <button className="rv mt-9 rounded-full bg-gradient-ember px-8 py-4 text-[12px] font-medium uppercase tracking-[0.15em] text-accent-foreground shadow-ember transition hover:scale-[1.02] ho[...]
+            <button className="rv mt-9 rounded-full bg-gradient-ember px-8 py-4 text-[12px] font-medium uppercase tracking-[0.15em] text-accent-foreground shadow-ember transition hover:scale-[1.02] hover:shadow-lg">
               Get This Template
             </button>
           </div>
@@ -474,7 +474,7 @@ function VegamLanding() {
           <div className="rv glass relative overflow-hidden rounded-3xl border border-border shadow-soft" style={{opacity:0,transform:"translateX(40px)"}}>
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
             <div className="flex items-center gap-4 border-b border-border p-7">
-              <div className="animate-ember-glow flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-accent/40 text-2xl" style={{ background: "radial-gradient(circle at 30% [...]
+              <div className="animate-ember-glow flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-accent/40 text-2xl" style={{ background: "radial-gradient(circle at 30% 30%, oklch(0.68 0.22 38 / 0.4), transparent 60%)" }}>
                 🙏
               </div>
               <div>
@@ -488,13 +488,13 @@ function VegamLanding() {
             <div className="flex min-h-[220px] flex-col gap-3 p-6">
               {paatiMessages.map((m, i) =>
                 m.role === "paati" ? (
-                  <div key={i} className="max-w-[85%] self-start rounded-[4px_14px_14px_14px] border border-border bg-foreground/5 px-4 py-3 text-[13px] italic leading-[1.65] text-foreground/80">{m.te[...]
+                  <div key={i} className="max-w-[85%] self-start rounded-[4px_14px_14px_14px] border border-border bg-foreground/5 px-4 py-3 text-[13px] italic leading-[1.65] text-foreground/80">{m.text}</div>
                 ) : (
                   <div key={i} className="max-w-[85%] self-end rounded-[14px_4px_14px_14px] bg-accent px-4 py-3 text-[13px] text-accent-foreground">{m.text}</div>
                 )
               )}
               {paatiLoading && (
-                <div className="max-w-[85%] self-start rounded-[4px_14px_14px_14px] border border-border bg-foreground/5 px-4 py-3 text-[13px] italic leading-[1.65] text-foreground/50">Paati is thinki[...]
+                <div className="max-w-[85%] self-start rounded-[4px_14px_14px_14px] border border-border bg-foreground/5 px-4 py-3 text-[13px] italic leading-[1.65] text-foreground/50">Paati is thinking...</div>
               )}
             </div>
             <div className="flex items-center gap-2 border-t border-border p-4">
@@ -510,7 +510,7 @@ function VegamLanding() {
                 onClick={() => void sendPaati()}
                 disabled={paatiLoading || !paatiInput.trim()}
                 aria-label="Send message"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-base text-accent-foreground transition hover:scale-110 hover:bg-accent-glow disabled:opacity-40 disabled[...]
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-base text-accent-foreground transition hover:scale-110 hover:bg-accent-glow disabled:opacity-40 disabled:hover:scale-100"
               >↑</button>
             </div>
           </div>
@@ -532,11 +532,11 @@ function VegamLanding() {
 
           <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
             {showcase.map((s) => (
-              <a key={s.title} href={s.href} target={s.href.startsWith("http") ? "_blank" : undefined} rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined} className="rv tilt group flex[...]
+              <a key={s.title} href={s.href} target={s.href.startsWith("http") ? "_blank" : undefined} rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined} className="rv tilt group flex flex-col overflow-hidden rounded-2xl border border-border transition hover:border-foreground/40" style={{opacity:0,transform:"translateY(40px)"}}>
                 <div className="relative aspect-[4/3] overflow-hidden border-b border-border">
                   <img src={s.img} alt={s.title} loading="lazy" width={1024} height={768} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
-                  <div className="absolute left-5 top-5 rounded-full border border-border-strong bg-background/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-accent backdrop-blur">{s.badge}<[...]
+                  <div className="absolute left-5 top-5 rounded-full border border-border-strong bg-background/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-accent backdrop-blur">{s.badge}</div>
                 </div>
                 <div className="p-7">
                   <div className="font-display text-base font-bold">{s.brand}</div>
@@ -578,8 +578,8 @@ function VegamLanding() {
 
           <div className="mt-16 grid grid-cols-1 gap-px bg-border/40 sm:grid-cols-2 lg:grid-cols-5">
             {plans.map((p) => (
-              <div key={p.name} className={`relative flex cursor-hover flex-col p-7 backdrop-blur-md transition-colors ${p.featured ? "bg-surface-elevated/40" : "bg-background/25 hover:bg-surface/40"}[...]
-                {p.featured && <div className="absolute inset-x-0 top-0 bg-gradient-ember py-1.5 text-center text-[9px] font-semibold uppercase tracking-[0.2em] text-accent-foreground">Most Popular</d[...]
+              <div key={p.name} className={`relative flex cursor-hover flex-col p-7 backdrop-blur-md transition-colors ${p.featured ? "bg-surface-elevated/40" : "bg-background/25 hover:bg-surface/40"}`}>
+                {p.featured && <div className="absolute inset-x-0 top-0 bg-gradient-ember py-1.5 text-center text-[9px] font-semibold uppercase tracking-[0.2em] text-accent-foreground">Most Popular</div>}
                 {p.style === "gold" && <div className="mb-3 inline-block w-fit rounded-full border border-gold/40 px-3 py-1 text-[9px] uppercase tracking-[0.2em] text-gold">{p.tier}</div>}
                 <div className={`text-[9px] uppercase tracking-[0.35em] text-muted-foreground ${p.featured ? "mt-6" : ""} ${p.style === "gold" ? "hidden" : ""}`}>{p.tier}</div>
                 <div className="mt-2 font-display text-2xl font-extrabold">{p.name}</div>
@@ -593,7 +593,7 @@ function VegamLanding() {
                   ))}
                 </ul>
                 {p.cta === "Get Started" ? (
-                  <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className={`mt-8 block w-full rounded-ful[...]
+                  <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className={`mt-8 block w-full rounded-full px-4 py-3 text-center text-[11px] font-medium uppercase tracking-[0.12em] transition ${
                     p.style === "solid" ? "bg-foreground text-background hover:bg-accent hover:text-accent-foreground" :
                     p.style === "gold" ? "border border-gold/40 text-gold hover:bg-gold/10" :
                     "border border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
@@ -620,7 +620,7 @@ function VegamLanding() {
           <h2 className="rv mt-6 font-display text-[clamp(36px,5vw,64px)] font-extrabold" style={{opacity:0,transform:"translateY(40px)"}}>Pay your way.</h2>
           <div className="rv mt-12 flex flex-wrap justify-center gap-2.5" style={{opacity:0,transform:"translateY(40px)"}}>
             {payments.map((p) => (
-              <div key={p} className="cursor-hover rounded-full border border-border px-5 py-2.5 text-[12px] text-muted-foreground transition hover:border-border-strong hover:text-foreground">{p}</div[...]
+              <div key={p} className="cursor-hover rounded-full border border-border px-5 py-2.5 text-[12px] text-muted-foreground transition hover:border-border-strong hover:text-foreground">{p}</div>
             ))}
           </div>
         </div>
@@ -632,7 +632,7 @@ function VegamLanding() {
           <div className="flex flex-wrap items-start justify-between gap-12 pb-16">
             <div>
               <div className="font-display text-2xl font-extrabold uppercase tracking-[0.18em]">VEGAM</div>
-              <p className="mt-3 max-w-[280px] text-[13px] leading-[1.7] text-muted-foreground">AI-powered website builder for Malaysian businesses and the global Tamil diaspora. Built in Malaysia. Fo[...]
+              <p className="mt-3 max-w-[280px] text-[13px] leading-[1.7] text-muted-foreground">AI-powered website builder for Malaysian businesses and the global Tamil diaspora. Built in Malaysia. For the world. வேகம்</p>
             </div>
             <div className="flex flex-wrap gap-12 md:gap-16">
               {([
