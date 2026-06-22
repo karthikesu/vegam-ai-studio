@@ -1,12 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { HeroOrb } from "@/components/HeroOrb";
 import laptopImg from "@/assets/showcase-laptop.jpg";
 import laptopVideo from "@/assets/showcase-laptop.mp4.asset.json";
-import heroVideo from "@/assets/showcase-stack.mp4.asset.json";
-import lavaVideo from "@/assets/lava-waterfall.mp4.asset.json";
+const heroVideo = "/videos/showcase-stack.mp4";
+const lavaVideo = "/videos/lava-waterfall.mp4";
 import phoneImg from "@/assets/showcase-phone.jpg";
 import tabletImg from "@/assets/showcase-tablet.jpg";
 
@@ -218,7 +218,7 @@ function VegamLanding() {
 
       {/* REAL LAVA WATERFALL — cinematic video flowing down both sides */}
       <div className="pointer-events-none fixed top-0 bottom-0 left-0 z-[1] w-[140px] hidden md:block overflow-hidden" aria-hidden>
-        <video src={lavaVideo.url} autoPlay loop muted playsInline
+        <video src={lavaVideo} autoPlay loop muted playsInline
           className="h-full w-full object-cover"
           style={{
             mixBlendMode: "screen",
@@ -229,7 +229,7 @@ function VegamLanding() {
         />
       </div>
       <div className="pointer-events-none fixed top-0 bottom-0 right-0 z-[1] w-[120px] hidden lg:block overflow-hidden" aria-hidden>
-        <video src={lavaVideo.url} autoPlay loop muted playsInline
+        <video src={lavaVideo} autoPlay loop muted playsInline
           className="h-full w-full object-cover scale-x-[-1]"
           style={{
             mixBlendMode: "screen",
@@ -272,7 +272,7 @@ function VegamLanding() {
       {/* HERO */}
       <section id="top" className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center">
         {/* 3D crystal behind text */}
-        <div className="pointer-events-none absolute inset-0 z-0 opacity-90">
+        <div className="pointer-events-none absolute inset-0 z-0 opacity-90 h-screen">
           <HeroOrb />
         </div>
         {/* radial dim mask so text reads */}
@@ -338,7 +338,7 @@ function VegamLanding() {
             {/* Frameless transparent video — black is keyed out so lava + orb show through */}
             <div className="relative">
               <video
-                src={heroVideo.url}
+                src={heroVideo}
                 autoPlay
                 loop
                 muted
@@ -695,3 +695,5 @@ function VegamLanding() {
     </div>
   );
 }
+
+
