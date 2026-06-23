@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { EmberParticles } from "@/components/EmberParticles";
 
 function NotFoundComponent() {
   return (
@@ -158,6 +159,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <EmberParticles />
       <FloatingWhatsApp />
     </QueryClientProvider>
   );
