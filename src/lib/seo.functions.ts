@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 
-const SITE_URL = "https://global-tamil-ai.lovable.app/";
+const SITE_URL = "https://vegam.my/";
 const GATEWAY = "https://connector-gateway.lovable.dev/google_search_console";
 
 function headers() {

@@ -1,6 +1,6 @@
 export function FloatingWhatsApp() {
   const href =
-    "https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services";
+    "https://wa.me/60126466797?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services";
   return (
     <a
       href={href}

@@ -8,10 +8,10 @@ export const Route = createFileRoute("/templates")({
       { name: "description", content: "Pick a style. VEGAM builds your website with AI in minutes. Restaurant, beauty, fashion, professional services, education, and healthcare templates." },
       { property: "og:title", content: "Website Templates — VEGAM" },
       { property: "og:description", content: "Pick a style. We build it with AI in minutes." },
-      { property: "og:url", content: "https://global-tamil-ai.lovable.app/templates" },
+      { property: "og:url", content: "https://vegam.my/templates" },
     ],
     links: [
-      { rel: "canonical", href: "https://global-tamil-ai.lovable.app/templates" },
+      { rel: "canonical", href: "https://vegam.my/templates" },
     ],
   }),
   component: TemplatesPage,
@@ -120,7 +120,7 @@ function TemplateCard({
           Starting from <span className="text-gold font-semibold text-base">RM79/month</span>
         </p>
         <a
-          href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services"
+          href="https://wa.me/60126466797?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services"
           target="_blank"
           rel="noopener noreferrer"
           className="block w-full text-center rounded-lg bg-gold px-6 py-3 font-semibold text-background transition-all hover:opacity-90 hover:shadow-[0_10px_30px_-10px_var(--gold)]"

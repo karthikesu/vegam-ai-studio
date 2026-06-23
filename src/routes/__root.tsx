@@ -101,9 +101,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://global-tamil-ai.lovable.app/#organization",
+              "@id": "https://vegam.my/#organization",
               name: "VEGAM",
-              url: "https://global-tamil-ai.lovable.app/",
+              url: "https://vegam.my/",
               description:
                 "Malaysian AI website builder for businesses and the global Tamil diaspora.",
               address: {
@@ -115,17 +115,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "customer support",
-                telephone: "+60176015125",
+                telephone: "+60126466797",
                 email: "karthikesuk@gmail.com",
                 areaServed: "MY",
               },
             },
             {
               "@type": "WebSite",
-              "@id": "https://global-tamil-ai.lovable.app/#website",
-              url: "https://global-tamil-ai.lovable.app/",
+              "@id": "https://vegam.my/#website",
+              url: "https://vegam.my/",
               name: "VEGAM",
-              publisher: { "@id": "https://global-tamil-ai.lovable.app/#organization" },
+              publisher: { "@id": "https://vegam.my/#organization" },
             },
           ],
         }),

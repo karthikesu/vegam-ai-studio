@@ -8,10 +8,10 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Get in touch with VEGAM. Let's build your next website together." },
       { property: "og:title", content: "Let's Build Together — VEGAM" },
       { property: "og:description", content: "Get in touch with VEGAM. Let's build your next website together." },
-      { property: "og:url", content: "https://global-tamil-ai.lovable.app/contact" },
+      { property: "og:url", content: "https://vegam.my/contact" },
     ],
     links: [
-      { rel: "canonical", href: "https://global-tamil-ai.lovable.app/contact" },
+      { rel: "canonical", href: "https://vegam.my/contact" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
@@ -40,7 +40,7 @@ function ContactPage() {
     e.preventDefault();
     const text = `Hi VEGAM, I'm ${form.name}.%0A%0AEmail: ${form.email}%0APhone: ${form.phone}%0ABusiness: ${form.businessType}%0A%0A${form.message}`;
     window.open(
-      `https://wa.me/60176015125?text=${encodeURIComponent(text).replace(/%2520/g, "%20")}`,
+      `https://wa.me/60126466797?text=${encodeURIComponent(text).replace(/%2520/g, "%20")}`,
       "_blank",
       "noopener,noreferrer",
     );
@@ -128,7 +128,7 @@ function ContactPage() {
             icon="📱"
             label="WhatsApp"
             value="+60 17-601 5125"
-            href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services"
+            href="https://wa.me/60126466797?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services"
           />
           <ContactItem icon="📍" label="Location" value="Rawang, Selangor, Malaysia" />
         </div>

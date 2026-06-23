@@ -12,4 +12,17 @@ export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id: string) {
+            if (id.includes("node_modules/three")) return "three";
+            if (id.includes("node_modules/gsap")) return "gsap";
+            if (id.includes("node_modules/recharts")) return "recharts";
+          },
+        },
+      },
+    },
+  },
 });

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://global-tamil-ai.lovable.app";
+const BASE_URL = "https://vegam.my";
 
 interface SitemapEntry {
   path: string;
