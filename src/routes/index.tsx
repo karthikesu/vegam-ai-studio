@@ -272,7 +272,7 @@ function VegamLanding() {
       {/* HERO */}
       <section id="top" className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center">
         {/* 3D crystal behind text */}
-        <div className="pointer-events-none absolute inset-0 z-0 opacity-90">
+        <div className="pointer-events-none absolute inset-0 z-0 opacity-90 h-screen">
           <HeroOrb />
         </div>
         {/* radial dim mask so text reads */}
