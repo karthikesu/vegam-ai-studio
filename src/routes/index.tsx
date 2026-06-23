@@ -696,5 +696,3 @@ function VegamLanding() {
   );
 }
 
-
-
