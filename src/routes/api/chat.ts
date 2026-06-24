@@ -37,18 +37,18 @@ export const Route = createFileRoute("/api/chat")({
           if (!message || typeof message !== "string") {
             return Response.json({ error: "Missing message" }, { status: 400 });
           }
-          const apiKey = process.env.LOVABLE_API_KEY;
+          const apiKey = process.env.GROQ_API_KEY;
           if (!apiKey) {
-            return Response.json({ error: "LOVABLE_API_KEY not configured" }, { status: 500 });
+            return Response.json({ error: "GROQ_API_KEY not configured" }, { status: 500 });
           }
-          const res = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+          const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
             method: "POST",
             headers: {
               "content-type": "application/json",
-              "Lovable-API-Key": apiKey,
+              authorization: `Bearer ${apiKey}`,
             },
             body: JSON.stringify({
-              model: "google/gemini-3-flash-preview",
+              model: "llama-3.3-70b-versatile",
               max_tokens: 300,
               messages: [
                 { role: "system", content: SYSTEM_PROMPT },
