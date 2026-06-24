@@ -264,7 +264,6 @@ function VegamLanding() {
           <a href="#pricing" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Pricing</a>
           <Link to="/templates" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Templates</Link>
           <Link to="/about" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">About</Link>
-          <Link to="/contact" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Contact</Link>
           <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className="rounded-full border border-foreground/30 px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.15em] text-foreground/60 transition hover:border-foreground hover:text-foreground">Contact</a>
         </div>
       </nav>

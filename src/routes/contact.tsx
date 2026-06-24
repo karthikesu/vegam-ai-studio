@@ -121,13 +121,13 @@ function ContactPage() {
           <ContactItem
             icon="📧"
             label="Email"
-            value="karthikesuk@gmail.com"
-            href="mailto:karthikesuk@gmail.com"
+            value="karthik@vegam.my"
+            href="mailto:karthik@vegam.my"
           />
           <ContactItem
             icon="📱"
             label="WhatsApp"
-            value="+60 17-601 5125"
+            value="+60 12-646 6797"
             href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services"
           />
           <ContactItem icon="📍" label="Location" value="Rawang, Selangor, Malaysia" />
