@@ -264,14 +264,14 @@ function VegamLanding() {
           <a href="#pricing" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Pricing</a>
           <Link to="/templates" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">Templates</Link>
           <Link to="/about" className="hidden text-[11px] uppercase tracking-[0.18em] text-foreground/60 transition hover:text-foreground md:inline">About</Link>
-          <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className="rounded-full border border-foreground/30 px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.15em] text-foreground/60 transition hover:border-foreground hover:text-foreground">Contact</a>
+          <a href="https://wa.me/60126466797?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className="rounded-full border border-foreground/30 px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.15em] text-foreground/60 transition hover:border-foreground hover:text-foreground">Contact</a>
         </div>
       </nav>
 
       {/* HERO */}
       <section id="top" className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center">
         {/* 3D crystal behind text */}
-        <div className="pointer-events-none absolute inset-0 z-0 opacity-90 h-screen">
+        <div className="pointer-events-none absolute inset-0 z-0 opacity-90">
           <HeroOrb />
         </div>
         {/* radial dim mask so text reads */}
@@ -298,7 +298,7 @@ function VegamLanding() {
         </p>
 
         <div className="hero-ctas mt-12 flex flex-wrap items-center justify-center gap-3 opacity-0">
-          <button className="rounded-full bg-foreground px-9 py-4 text-[13px] font-medium tracking-wide text-background transition-all hover:scale-[1.04] hover:bg-accent hover:text-accent-foreground">Start Free Trial</button>
+          <a href="https://wa.me/60126466797?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20starting%20a%20free%20trial" target="_blank" rel="noopener noreferrer" className="rounded-full bg-foreground px-9 py-4 text-[13px] font-medium tracking-wide text-background transition-all hover:scale-[1.04] hover:bg-accent hover:text-accent-foreground">Start Free Trial</a>
           <button className="rounded-full border border-border-strong px-9 py-4 text-[13px] tracking-wide transition-all hover:scale-[1.04] hover:border-foreground/60">See Live Demo</button>
         </div>
         </div>
@@ -464,9 +464,9 @@ function VegamLanding() {
                 <li key={x} className="flex items-center gap-3 border-b border-border pb-3 last:border-0"><span className="h-px w-2 bg-accent" />{x}</li>
               ))}
             </ul>
-            <button className="rv mt-9 rounded-full bg-gradient-ember px-8 py-4 text-[12px] font-medium uppercase tracking-[0.15em] text-accent-foreground shadow-ember transition hover:scale-[1.02] hover:shadow-lg">
+            <a href="https://wa.me/60126466797?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20the%20Uyir%20AI%20Memorial%20template" target="_blank" rel="noopener noreferrer" className="rv mt-9 inline-block rounded-full bg-gradient-ember px-8 py-4 text-[12px] font-medium uppercase tracking-[0.15em] text-accent-foreground shadow-ember transition hover:scale-[1.02] hover:shadow-lg">
               Get This Template
-            </button>
+            </a>
           </div>
 
           {/* Memorial chat card */}
@@ -592,7 +592,7 @@ function VegamLanding() {
                   ))}
                 </ul>
                 {p.cta === "Get Started" ? (
-                  <a href="https://wa.me/60176015125?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className={`mt-8 block w-full rounded-full px-4 py-3 text-center text-[11px] font-medium uppercase tracking-[0.12em] transition ${
+                  <a href="https://wa.me/60126466797?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className={`mt-8 block w-full rounded-full px-4 py-3 text-center text-[11px] font-medium uppercase tracking-[0.12em] transition ${
                     p.style === "solid" ? "bg-foreground text-background hover:bg-accent hover:text-accent-foreground" :
                     p.style === "gold" ? "border border-gold/40 text-gold hover:bg-gold/10" :
                     "border border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"

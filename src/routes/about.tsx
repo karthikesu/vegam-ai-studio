@@ -8,10 +8,10 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "VEGAM is a Malaysian AI website builder born in Kuala Lumpur. We make professional websites accessible to every Malaysian business." },
       { property: "og:title", content: "We Are VEGAM — VEGAM" },
       { property: "og:description", content: "Malaysian AI Website Builder — Built for Businesses Like Yours" },
-      { property: "og:url", content: "https://global-tamil-ai.lovable.app/about" },
+      { property: "og:url", content: "https://vegam.my/about" },
     ],
     links: [
-      { rel: "canonical", href: "https://global-tamil-ai.lovable.app/about" },
+      { rel: "canonical", href: "https://vegam.my/about" },
     ],
   }),
   component: AboutPage,

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://global-tamil-ai.lovable.app/sitemap.xml
+Sitemap: https://vegam.my/sitemap.xml

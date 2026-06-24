@@ -7,10 +7,10 @@ export const Route = createFileRoute("/roadmap")({
       { name: "description", content: "What VEGAM is building next — milestones for our AI website builder, Uyir AI memorial platform, and Sakthi WhatsApp bot." },
       { property: "og:title", content: "Roadmap — VEGAM" },
       { property: "og:description", content: "What we're building next at VEGAM." },
-      { property: "og:url", content: "https://global-tamil-ai.lovable.app/roadmap" },
+      { property: "og:url", content: "https://vegam.my/roadmap" },
     ],
     links: [
-      { rel: "canonical", href: "https://global-tamil-ai.lovable.app/roadmap" },
+      { rel: "canonical", href: "https://vegam.my/roadmap" },
     ],
   }),
   component: RoadmapPage,

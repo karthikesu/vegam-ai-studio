@@ -35,7 +35,7 @@ export const Route = createFileRoute("/seo-dashboard")({
       {
         name: "description",
         content:
-          "Live sitemap status, indexing progress and Search Console metrics for global-tamil-ai.lovable.app.",
+          "Live sitemap status, indexing progress and Search Console metrics for vegam.my.",
       },
       { name: "robots", content: "noindex" },
     ],
@@ -100,7 +100,7 @@ function SeoDashboard() {
         <h1 className="text-3xl font-bold tracking-tight">SEO Monitoring</h1>
         <p className="text-sm text-muted-foreground">
           Live data from Google Search Console for{" "}
-          <span className="font-medium text-foreground">global-tamil-ai.lovable.app</span>.
+          <span className="font-medium text-foreground">vegam.my</span>.
         </p>
         <div className="flex flex-wrap items-center gap-2 text-xs">
           <Badge variant={site.data?.site ? "default" : "secondary"}>
