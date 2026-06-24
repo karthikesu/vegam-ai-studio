@@ -4,10 +4,10 @@ import { Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "We Are VEGAM — VEGAM" },
-      { name: "description", content: "VEGAM is a Malaysian AI website builder born in Kuala Lumpur. We make professional websites accessible to every Malaysian business." },
-      { property: "og:title", content: "We Are VEGAM — VEGAM" },
-      { property: "og:description", content: "Malaysian AI Website Builder — Built for Businesses Like Yours" },
+      { title: "KARTS HOLDING — Parent Company of VEGAM" },
+      { name: "description", content: "KARTS HOLDING — Building AI tools for the Tamil diaspora. Parent company of VEGAM, Sakthi, and Uyir AI." },
+      { property: "og:title", content: "KARTS HOLDING — AI for the Tamil Diaspora" },
+      { property: "og:description", content: "Empowering Tamil families and businesses with AI technology." },
       { property: "og:url", content: "https://vegam.my/about" },
     ],
     links: [
@@ -30,78 +30,89 @@ function AboutPage() {
         </Link>
 
         <header className="mb-16 text-center">
-          <p className="font-serif-italic text-accent text-lg mb-3">about us</p>
+          <p className="font-serif-italic text-accent text-lg mb-3">who we are</p>
           <h1 className="font-display text-5xl md:text-6xl font-semibold tracking-tight text-balance">
-            We Are <span className="text-gradient-ember">VEGAM</span>
+            KARTS <span className="text-gradient-ember">HOLDING</span>
           </h1>
           <p className="mt-5 text-muted-foreground max-w-xl mx-auto text-lg">
-            Malaysian AI Website Builder — Built for Businesses Like Yours
+            AI tools built for the Tamil diaspora — by Tamils, for Tamils, and for the world.
           </p>
         </header>
       </section>
 
-      {/* Our Story */}
+      {/* Origin Story */}
       <section className="relative mx-auto max-w-3xl px-6 pb-20">
         <div className="glass rounded-2xl border border-border p-8 md:p-10">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px flex-1 bg-border" />
             <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-medium m-0">
-              Our Story
+              Our Origin
             </h2>
             <div className="h-px flex-1 bg-border" />
           </div>
           <p className="text-foreground/90 leading-relaxed text-lg text-balance">
-            VEGAM was born in Kuala Lumpur with one mission — to make professional websites accessible to every Malaysian business, big or small. <span className="text-gradient-ember font-medium">Vegam</span> means <span className="text-gold font-medium">Speed</span> in Tamil. We build fast.
+            KARTS HOLDING was founded in Rawang, Selangor with a mission — to build powerful AI tools for Tamil families and businesses. Our products are named for their Tamil meanings: <span className="text-gold font-medium">Vegam</span> (Speed), <span className="text-gold font-medium">Sakthi</span> (Power), and <span className="text-gold font-medium">Uyir</span> (Soul). We believe technology should speak your language, preserve your heritage, and empower your dreams.
           </p>
         </div>
       </section>
 
-      {/* Our Products */}
+      {/* Founders */}
       <section className="relative mx-auto max-w-3xl px-6 pb-20">
         <div className="flex items-center gap-3 mb-8">
           <div className="h-px flex-1 bg-border" />
           <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-medium m-0">
-            Our Products
+            Our Founders
+          </h2>
+          <div className="h-px flex-1 bg-border" />
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <FounderCard
+            name="Karthikesu Kesavan"
+            role="Founder & CEO"
+            desc="Leading the vision to make AI accessible to Tamil families and businesses worldwide."
+          />
+          <FounderCard
+            name="Hemalatha"
+            role="Creative Director"
+            desc="Bringing cultural authenticity and emotional depth to every product design."
+          />
+        </div>
+      </section>
+
+      {/* Product Family */}
+      <section className="relative mx-auto max-w-3xl px-6 pb-20">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="h-px flex-1 bg-border" />
+          <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-medium m-0">
+            Product Family
           </h2>
           <div className="h-px flex-1 bg-border" />
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
           <ProductCard
-            name="VEGAM.MY"
+            name="VEGAM"
+            tamil="வேகம் · Speed"
             desc="AI Website Builder"
             status="live"
           />
           <ProductCard
-            name="UYIR AI"
-            desc="Tamil Memorial Platform"
-            status="soon"
+            name="SAKTHI"
+            tamil="சக்தி · Power"
+            desc="WhatsApp AI Commerce"
+            status="live"
           />
           <ProductCard
-            name="SAKTHI"
-            desc="WhatsApp AI Bot"
-            status="soon"
+            name="UYIR AI"
+            tamil="உயிர் · Soul"
+            desc="Tamil Memorial Platform"
+            status="coming"
           />
         </div>
       </section>
 
-      {/* Our First Client */}
-      <section className="relative mx-auto max-w-3xl px-6 pb-20">
-        <div className="glass rounded-2xl border border-border p-8 md:p-10 text-center">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px flex-1 bg-border" />
-            <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-medium m-0">
-              Our First Client
-            </h2>
-            <div className="h-px flex-1 bg-border" />
-          </div>
-          <p className="text-foreground/90 leading-relaxed text-lg text-balance">
-            <span className="text-gradient-ember font-medium">Irama Hotel Kuala Lumpur</span> — Pre-opening hospitality technology partner since 2025
-          </p>
-        </div>
-      </section>
-
-      {/* Our Vision */}
+      {/* Vision */}
       <section className="relative mx-auto max-w-3xl px-6 pb-24">
         <div className="rounded-2xl border border-border bg-gradient-ember p-8 md:p-10 text-center">
           <div className="flex items-center gap-3 mb-6">
@@ -112,8 +123,8 @@ function AboutPage() {
             <div className="h-px flex-1 bg-background/20" />
           </div>
           <p className="text-background leading-relaxed text-xl font-display font-semibold tracking-tight text-balance">
-            10 Malaysian businesses online by June 2026.<br />
-            100 by December 2026.
+            To empower 10,000 Tamil families and businesses with AI technology by 2027.<br />
+            To preserve Tamil culture for generations to come.
           </p>
         </div>
       </section>
@@ -121,19 +132,41 @@ function AboutPage() {
   );
 }
 
+function FounderCard({
+  name,
+  role,
+  desc,
+}: {
+  name: string;
+  role: string;
+  desc: string;
+}) {
+  return (
+    <div className="glass rounded-xl border border-border p-6 md:p-8 transition-colors hover:border-border-strong hover:bg-surface/40">
+      <h3 className="font-display text-xl font-semibold tracking-tight text-foreground">
+        {name}
+      </h3>
+      <p className="mt-1 text-sm font-medium text-accent">{role}</p>
+      <p className="mt-3 text-muted-foreground text-sm leading-relaxed">{desc}</p>
+    </div>
+  );
+}
+
 function ProductCard({
   name,
+  tamil,
   desc,
   status,
 }: {
   name: string;
+  tamil: string;
   desc: string;
-  status: "live" | "soon";
+  status: "live" | "coming";
 }) {
   return (
     <div className="glass rounded-xl border border-border p-6 transition-colors hover:border-border-strong">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="font-display text-xl font-semibold tracking-tight text-foreground">
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="font-display text-lg font-semibold tracking-tight text-foreground">
           {name}
         </h3>
         {status === "live" ? (
@@ -147,6 +180,7 @@ function ProductCard({
           </span>
         )}
       </div>
+      <p className="text-muted-foreground text-xs font-medium italic mb-2">{tamil}</p>
       <p className="text-muted-foreground text-sm">{desc}</p>
     </div>
   );

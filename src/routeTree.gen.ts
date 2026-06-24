@@ -13,6 +13,7 @@ import { Route as TemplatesRouteImport } from './routes/templates'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SeoDashboardRouteImport } from './routes/seo-dashboard'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
+import { Route as PaymentsRouteImport } from './routes/payments'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -36,6 +37,11 @@ const SeoDashboardRoute = SeoDashboardRouteImport.update({
 const RoadmapRoute = RoadmapRouteImport.update({
   id: '/roadmap',
   path: '/roadmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentsRoute = PaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/payments': typeof PaymentsRoute
   '/roadmap': typeof RoadmapRoute
   '/seo-dashboard': typeof SeoDashboardRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/payments': typeof PaymentsRoute
   '/roadmap': typeof RoadmapRoute
   '/seo-dashboard': typeof SeoDashboardRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/payments': typeof PaymentsRoute
   '/roadmap': typeof RoadmapRoute
   '/seo-dashboard': typeof SeoDashboardRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/payments'
     | '/roadmap'
     | '/seo-dashboard'
     | '/sitemap.xml'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/payments'
     | '/roadmap'
     | '/seo-dashboard'
     | '/sitemap.xml'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/payments'
     | '/roadmap'
     | '/seo-dashboard'
     | '/sitemap.xml'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  PaymentsRoute: typeof PaymentsRoute
   RoadmapRoute: typeof RoadmapRoute
   SeoDashboardRoute: typeof SeoDashboardRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -164,6 +177,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoadmapRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/payments': {
+      id: '/payments'
+      path: '/payments'
+      fullPath: '/payments'
+      preLoaderRoute: typeof PaymentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  PaymentsRoute: PaymentsRoute,
   RoadmapRoute: RoadmapRoute,
   SeoDashboardRoute: SeoDashboardRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

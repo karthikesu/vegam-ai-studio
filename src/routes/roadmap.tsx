@@ -24,7 +24,7 @@ const MILESTONES = [
     items: [
       "Conversational site generation in 60 seconds",
       "vegam.my subdomain + custom domain support",
-      "Sakthi AI chatbot on every site",
+      "Nila AI chatbot on every site",
     ],
   },
   {

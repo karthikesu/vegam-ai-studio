@@ -65,7 +65,7 @@ export const Route = createFileRoute("/")({
 const features = [
   { n: "01", icon: "🤖", title: "AI Website Builder", desc: "Describe your business. Watch a premium website generate live. No code. No designers. Zero learning curve." },
   { n: "02", icon: "⚡", title: "Live Preview", desc: "Every change updates instantly as you speak to the AI. What you see is exactly what your customers see." },
-  { n: "03", icon: "💬", title: "Sakthi AI Chatbot", desc: "Every site gets its own AI assistant. Tamil. Malay. English. Converts visitors to buyers 24/7 while you sleep." },
+  { n: "03", icon: "💬", title: "Nila AI Chatbot", desc: "Every site gets its own AI assistant. Tamil. Malay. English. Converts visitors to buyers 24/7 while you sleep." },
   { n: "04", icon: "🌍", title: "Global Payments", desc: "DuitNow + FPX for Malaysia. Stripe, Klarna, Afterpay for the world. Every currency. Every method." },
   { n: "05", icon: "🎓", title: "Student Kalvi Tier", desc: "70% off with valid student ID. All Malaysian universities accepted. Your future starts at student prices." },
   { n: "06", icon: "🪔", title: "Uyir AI Memorial", desc: "The world's first Tamil soul preservation platform. Upload voice, photo, stories. Family talks to them forever." },
@@ -74,14 +74,14 @@ const features = [
 const marquee = ["⚡ AI Website Builder", "🪔 Uyir AI Memorial", "💬 Sakthi WhatsApp Bot", "🌍 Global Payments", "🎓 Student Kalvi Tier", "🇲🇾 Made in Malaysia", "🔱 Murugan Vazhga"];
 
 const showcase = [
-  { img: phoneImg, brand: "Uyir AI", sub: "Tamil Memorial Platform", tags: ["Claude AI", "ElevenLabs", "D-ID"], badge: "World First", title: "Uyir AI Memorial", desc: "Preserve your elders forever", href: "#paati" },
+  { img: phoneImg, brand: "Uyir AI", sub: "Tamil Memorial Platform", tags: ["Claude AI", "ElevenLabs", "D-ID"], badge: "World First", badge2: "Full Platform — Coming Soon", title: "Uyir AI Memorial", desc: "Try the live demo above — chat with Paati Kamalam right now. The full platform (upload your own family's photos, voice & stories) is still in development.", href: "#paati" },
   { img: laptopImg, brand: "Irama HK", sub: "Hotel Management System", tags: ["Real-time", "Supabase", "Live"], badge: "Running Live", title: "Irama Housekeeping System", desc: "Full hotel housekeeping ops", href: "https://irama-housekeeping.vercel.app", status: "Live", cta: "View System" },
   { img: tabletImg, brand: "Irama Kiosk", sub: "Cafeteria Feedback System", tags: ["Tablet UI", "Analytics", "QR Codes"], badge: "Running Live", title: "Cafeteria Feedback Kiosk", desc: "Touch-screen satisfaction surveys", href: "https://irama-kiosk.vercel.app", status: "Live", cta: "View Kiosk" },
 ];
 
 const plans = [
-  { tier: "Starter", name: "VIDHAI", tamil: "விதை · The Seed", price: "RM 79", per: "per month", feats: [["1 Website", "AI Builder Basic"], ["5 Pages", "vegam.my Subdomain"], ["Sakthi AI Chat", "Basic"], ["Email Support"]], cta: "Get Started" },
-  { tier: "Most Popular", name: "VĒR", tamil: "வேர் · The Root", price: "RM 199", per: "per month", feats: [["3 Websites", "AI Builder Full"], ["Unlimited Pages", "Custom Domain"], ["Sakthi AI Chat", "Pro"], ["Priority Support"]], featured: true, style: "solid", cta: "Get Started" },
+  { tier: "Starter", name: "VIDHAI", tamil: "விதை · The Seed", price: "RM 79", per: "per month", feats: [["1 Website", "AI Builder Basic"], ["5 Pages", "vegam.my Subdomain"], ["Nila AI Chat", "Basic"], ["Email Support"]], cta: "Get Started" },
+  { tier: "Most Popular", name: "VĒR", tamil: "வேர் · The Root", price: "RM 199", per: "per month", feats: [["3 Websites", "AI Builder Full"], ["Unlimited Pages", "Custom Domain"], ["Nila AI Chat", "Pro"], ["Priority Support"]], featured: true, style: "solid", cta: "Get Started" },
   { tier: "Business", name: "MARAM", tamil: "மரம் · The Tree", price: "RM 399", per: "per month", feats: [["10 Websites", "AI Builder Pro"], ["E-Commerce", "Global Payments"], ["Klarna + Afterpay"], ["Dedicated Manager"]], style: "solid", cta: "Get Started" },
   { tier: "Enterprise", name: "KĀDU", tamil: "காடு · The Forest", price: "Custom", per: "tailored pricing", feats: [["Unlimited Sites", "Dedicated AI"], ["White Label", "API Access"], ["Custom Integrations"], ["24/7 Support"]], cta: "Contact Sales" },
   { tier: "🎓 Student", name: "KALVI", tamil: "கல்வி · Education", price: "RM 29", per: "/ month · 70% off", feats: [["2 Websites", "AI Builder Full"], ["Portfolio Template", "Student Verified"], ["Priority Onboarding"], ["Community Access"]], style: "gold", cta: "Get Started" },
@@ -293,7 +293,7 @@ function VegamLanding() {
         </h1>
 
         <p className="hero-sub mx-auto mt-9 max-w-[540px] text-[15px] font-light leading-[1.7] text-muted-foreground opacity-0 md:text-[18px]">
-          Tell our AI your idea. Watch your website build itself live — <span className="text-foreground">in 60 seconds.</span>
+          Tell our AI your idea. Your website goes live — <span className="text-foreground">in 60 seconds.</span>
           <br />For Malaysia. For 77 million Tamils. For the world.
         </p>
 
@@ -372,7 +372,7 @@ function VegamLanding() {
                       Your Brand,<br/><span className="font-serif-italic text-gradient-ember">Built in 60 seconds.</span>
                     </h3>
                     <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
-                      Speak your idea. Sakthi AI assembles a production-ready site — pixel-perfect, deployed to the edge.
+                      Speak your idea. VEGAM's AI assembles a production-ready site — pixel-perfect, deployed to the edge.
                     </p>
                     <div className="mt-3 flex gap-2">
                       <span className="rounded-full bg-foreground px-3 py-1.5 text-[10px] font-medium text-background">Get Started</span>
@@ -536,6 +536,7 @@ function VegamLanding() {
                   <img src={s.img} alt={s.title} loading="lazy" width={1024} height={768} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
                   <div className="absolute left-5 top-5 rounded-full border border-border-strong bg-background/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-accent backdrop-blur">{s.badge}</div>
+                  {s.badge2 && <div className="absolute left-5 top-14 rounded-full border border-border-strong bg-background/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-gold backdrop-blur">{s.badge2}</div>}
                 </div>
                 <div className="p-7">
                   <div className="font-display text-base font-bold">{s.brand}</div>
@@ -611,19 +612,20 @@ function VegamLanding() {
       </section>
 
       {/* PAYMENTS */}
-      <section className="relative z-10 px-6 py-32 md:px-12">
+      <Link to="/payments" className="relative z-10 block cursor-hover px-6 py-32 md:px-12 transition hover:opacity-80">
         <div className="mx-auto max-w-5xl text-center">
-          <div className="rv inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-muted-foreground" style={{opacity:0,transform:"translateY(40px)"}}>
+          <div className="rv inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-muted-foreground transition group-hover:text-accent" style={{opacity:0,transform:"translateY(40px)"}}>
             <span className="h-px w-6 bg-accent" />Payments<span className="h-px w-6 bg-accent" />
           </div>
-          <h2 className="rv mt-6 font-display text-[clamp(36px,5vw,64px)] font-extrabold" style={{opacity:0,transform:"translateY(40px)"}}>Pay your way.</h2>
+          <h2 className="rv mt-6 font-display text-[clamp(36px,5vw,64px)] font-extrabold transition group-hover:text-accent" style={{opacity:0,transform:"translateY(40px)"}}>Pay your way.</h2>
           <div className="rv mt-12 flex flex-wrap justify-center gap-2.5" style={{opacity:0,transform:"translateY(40px)"}}>
             {payments.map((p) => (
               <div key={p} className="cursor-hover rounded-full border border-border px-5 py-2.5 text-[12px] text-muted-foreground transition hover:border-border-strong hover:text-foreground">{p}</div>
             ))}
           </div>
+          <div className="rv mt-8 text-[12px] text-muted-foreground" style={{opacity:0,transform:"translateY(40px)"}}>View all payment methods →</div>
         </div>
-      </section>
+      </Link>
 
       {/* FOOTER */}
       <footer className="relative z-10 border-t border-border px-6 py-20 md:px-12">
