@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { HeroOrb } from "@/components/HeroOrb";
-import { BuiltWithOrb } from "@/components/BuiltWithOrb";
+import Beams from "@/components/ReactBitsBeams";
 import laptopImg from "@/assets/showcase-laptop.jpg";
 import laptopVideo from "@/assets/showcase-laptop.mp4.asset.json";
 const heroVideo = "/videos/showcase-stack.mp4";
@@ -424,7 +424,9 @@ function VegamLanding() {
             ))}
           </div>
 
-          <BuiltWithOrb />
+          <div className="relative mx-auto mt-28 h-[360px] w-full overflow-hidden rounded-3xl md:h-[460px]">
+            <Beams />
+          </div>
         </div>
       </section>
 
