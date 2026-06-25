@@ -6,6 +6,8 @@ import { HeroOrb } from "@/components/HeroOrb";
 import laptopImg from "@/assets/showcase-laptop.jpg";
 import laptopVideo from "@/assets/showcase-laptop.mp4.asset.json";
 const heroVideo = "/videos/showcase-stack.mp4";
+const builderPreviewVideo = "/videos/builder-preview.mp4";
+const kioskVideo = "/videos/kiosk-final.mp4";
 const lavaVideo = "/videos/lava-waterfall.mp4";
 import phoneImg from "@/assets/showcase-phone.jpg";
 import tabletImg from "@/assets/showcase-tablet.jpg";
@@ -76,7 +78,7 @@ const marquee = ["⚡ AI Website Builder", "🪔 Uyir AI Memorial", "💬 Sakthi
 const showcase = [
   { img: phoneImg, brand: "Uyir AI", sub: "Tamil Memorial Platform", tags: ["Claude AI", "ElevenLabs", "D-ID"], badge: "World First", badge2: "Full Platform — Coming Soon", title: "Uyir AI Memorial", desc: "Try the live demo above — chat with Paati Kamalam right now. The full platform (upload your own family's photos, voice & stories) is still in development.", href: "#paati" },
   { img: laptopImg, brand: "Irama HK", sub: "Hotel Management System", tags: ["Real-time", "Supabase", "Live"], badge: "Running Live", title: "Irama Housekeeping System", desc: "Full hotel housekeeping ops", href: "https://karthikesu.github.io/Irama/hk-login.html", status: "Live", cta: "View System" },
-  { img: tabletImg, brand: "Irama Kiosk", sub: "Cafeteria Feedback System", tags: ["Tablet UI", "Analytics", "QR Codes"], badge: "Running Live", title: "Cafeteria Feedback Kiosk", desc: "Touch-screen satisfaction surveys", href: "https://karthikesu.github.io/Irama/", status: "Live", cta: "View Kiosk" },
+  { img: tabletImg, video: kioskVideo, brand: "Irama Kiosk", sub: "Cafeteria Feedback System", tags: ["Tablet UI", "Analytics", "QR Codes"], badge: "Running Live", title: "Cafeteria Feedback Kiosk", desc: "Touch-screen satisfaction surveys", href: "https://karthikesu.github.io/Irama/", status: "Live", cta: "View Kiosk" },
 ];
 
 const plans = [
@@ -342,12 +344,9 @@ function VegamLanding() {
                 loop
                 muted
                 playsInline
-                className="h-[80vh] max-h-[760px] w-full object-cover"
+                className="h-[80vh] max-h-[760px] w-full rounded-3xl object-cover"
                 style={{
-                  mixBlendMode: "screen",
-                  WebkitMaskImage: "radial-gradient(ellipse 92% 88% at center, #000 60%, transparent 100%)",
-                  maskImage: "radial-gradient(ellipse 92% 88% at center, #000 60%, transparent 100%)",
-                  filter: "saturate(1.15) contrast(1.05)",
+                  filter: "saturate(1.1) contrast(1.03)",
                 }}
                 aria-label="VEGAM — floating website panels"
               />
@@ -418,6 +417,22 @@ function VegamLanding() {
                 <div className="mt-3 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{s.l}</div>
               </div>
             ))}
+          </div>
+
+          {/* Live Preview demo clip */}
+          <div className="rv mt-24" style={{opacity:0,transform:"translateY(40px)"}}>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-accent">See it in action</p>
+            <h3 className="mt-3 font-display text-2xl font-extrabold text-foreground">From idea to live site, in seconds.</h3>
+            <div className="relative mt-8 overflow-hidden rounded-3xl border border-border-strong">
+              <video
+                src={builderPreviewVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -533,7 +548,11 @@ function VegamLanding() {
             {showcase.map((s) => (
               <a key={s.title} href={s.href} target={s.href.startsWith("http") ? "_blank" : undefined} rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined} className="rv tilt group flex flex-col overflow-hidden rounded-2xl border border-border transition hover:border-foreground/40" style={{opacity:0,transform:"translateY(40px)"}}>
                 <div className="relative aspect-[4/3] overflow-hidden border-b border-border">
-                  <img src={s.img} alt={s.title} loading="lazy" width={1024} height={768} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  {s.video ? (
+                    <video src={s.video} autoPlay loop muted playsInline className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  ) : (
+                    <img src={s.img} alt={s.title} loading="lazy" width={1024} height={768} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
                   <div className="absolute left-5 top-5 rounded-full border border-border-strong bg-background/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-accent backdrop-blur">{s.badge}</div>
                   {s.badge2 && <div className="absolute left-5 top-14 rounded-full border border-border-strong bg-background/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-gold backdrop-blur">{s.badge2}</div>}
