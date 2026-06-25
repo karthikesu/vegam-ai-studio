@@ -726,8 +726,17 @@ function VegamLanding() {
               loop
               controls
               playsInline
-              className="w-full object-cover"
+              className="hidden w-full object-cover"
             />
+            <div className="flex flex-col items-center gap-4 px-8 py-20 text-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-accent/40 text-2xl" style={{ background: "radial-gradient(circle at 30% 30%, oklch(0.68 0.22 38 / 0.4), transparent 60%)" }}>
+                ⏳
+              </div>
+              <h3 className="font-display text-2xl font-bold text-foreground">Real client demo coming soon</h3>
+              <p className="max-w-md text-[14px] leading-relaxed text-muted-foreground">
+                We're building our first live client site right now. The moment it's live, you'll see the actual build — not a mockup.
+              </p>
+            </div>
           </div>
         </div>
       )}
