@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { HeroOrb } from "@/components/HeroOrb";
-import Beams from "@/components/ReactBitsBeams";
+import Particles from "@/components/ReactBitsParticles";
 import laptopImg from "@/assets/showcase-laptop.jpg";
 import laptopVideo from "@/assets/showcase-laptop.mp4.asset.json";
 const heroVideo = "/videos/showcase-stack.mp4";
@@ -424,8 +424,17 @@ function VegamLanding() {
             ))}
           </div>
 
-          <div className="relative mx-auto mt-28 h-[360px] w-full overflow-hidden rounded-3xl md:h-[460px]">
-            <Beams />
+          <div className="relative mx-auto mt-28 h-[360px] w-full md:h-[460px]">
+            <Particles
+              particleColors={["#ff8c42", "#ffd27a", "#ff6a2e", "#d4af37"]}
+              particleCount={150}
+              particleSpread={12}
+              speed={0.06}
+              particleBaseSize={140}
+              sizeRandomness={1}
+              alphaParticles
+              disableRotation={false}
+            />
           </div>
         </div>
       </section>
