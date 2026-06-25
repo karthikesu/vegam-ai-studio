@@ -73,7 +73,7 @@ function RoadmapPage() {
         <header className="mb-16 text-center">
           <p className="font-serif-italic text-accent text-lg mb-3">what's next</p>
           <h1 className="font-display text-5xl md:text-6xl font-semibold tracking-tight text-balance">
-            Our <span className="text-gradient-ember">Roadmap</span>
+            Our <span className="text-accent">Roadmap</span>
           </h1>
           <p className="mt-5 text-muted-foreground max-w-xl mx-auto text-lg">
             Where VEGAM is heading — and when.

@@ -57,7 +57,7 @@ function ContactPage() {
         <header className="mb-12 text-center">
           <p className="font-serif-italic text-accent text-lg mb-3">get in touch</p>
           <h1 className="font-display text-5xl md:text-6xl font-semibold tracking-tight text-balance">
-            Let's Build <span className="text-gradient-ember">Together</span>
+            Let's Build <span className="text-accent">Together</span>
           </h1>
           <p className="mt-5 text-muted-foreground max-w-xl mx-auto">
             Tell us about your project. We'll get back within 24 hours.
@@ -105,7 +105,7 @@ function ContactPage() {
 
           <button
             type="submit"
-            className="w-full rounded-lg bg-gold px-6 py-3.5 font-semibold text-background transition-all hover:opacity-90 hover:shadow-[0_10px_30px_-10px_var(--gold)]"
+            className="w-full rounded-lg bg-accent px-6 py-3.5 font-semibold text-accent-foreground transition-all hover:opacity-90 hover:shadow-ember"
           >
             Send Message
           </button>

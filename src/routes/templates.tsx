@@ -64,7 +64,7 @@ function TemplatesPage() {
         <header className="mb-14 text-center">
           <p className="font-serif-italic text-accent text-lg mb-3">browse designs</p>
           <h1 className="font-display text-5xl md:text-6xl font-semibold tracking-tight text-balance">
-            Website <span className="text-gradient-ember">Templates</span>
+            Website <span className="text-accent">Templates</span>
           </h1>
           <p className="mt-5 text-muted-foreground max-w-xl mx-auto text-lg">
             Pick a style. We build it with AI in minutes.

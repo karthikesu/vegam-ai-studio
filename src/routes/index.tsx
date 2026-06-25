@@ -288,10 +288,10 @@ function VegamLanding() {
 
         <h1 className="mt-9 text-balance">
           <span className="block overflow-hidden">
-            <span className="h1-line block translate-y-full font-display text-[clamp(64px,13vw,180px)] font-extrabold leading-[0.88]">Build Fast.</span>
+            <span className="h1-line block translate-y-full font-display text-[clamp(48px,8.5vw,128px)] font-extrabold leading-[0.92] tracking-[-0.01em]">Build Fast.</span>
           </span>
           <span className="block overflow-hidden">
-            <span className="h1-line block translate-y-full font-serif-italic text-[clamp(72px,14vw,200px)] font-normal leading-[0.88] text-gradient-ember">Grow Global.</span>
+            <span className="h1-line block translate-y-full font-serif-italic text-[clamp(52px,9.5vw,140px)] font-normal leading-[0.92] text-accent">Grow Global.</span>
           </span>
         </h1>
 
@@ -372,7 +372,7 @@ function VegamLanding() {
                   <div className="col-span-2">
                     <p className="text-[10px] uppercase tracking-[0.25em] text-accent">Live Preview</p>
                     <h3 className="mt-2 font-display text-2xl font-extrabold leading-tight text-foreground">
-                      Your Brand,<br/><span className="font-serif-italic text-gradient-ember">Built in 60 seconds.</span>
+                      Your Brand,<br/><span className="font-serif-italic text-accent">Built in 60 seconds.</span>
                     </h3>
                     <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
                       Speak your idea. VEGAM's AI assembles a production-ready site — pixel-perfect, deployed to the edge.
@@ -389,7 +389,7 @@ function VegamLanding() {
                     </div>
                     <div className="rounded-lg border border-border bg-surface/30 p-2.5 backdrop-blur-sm">
                       <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Conversions</p>
-                      <p className="font-display text-lg font-bold text-gradient-ember">+38%</p>
+                      <p className="font-display text-lg font-bold text-accent">+38%</p>
                     </div>
                   </div>
                 </div>
@@ -409,15 +409,15 @@ function VegamLanding() {
           </div>
 
           {/* Stat row */}
-          <div className="rv mt-24 grid grid-cols-2 gap-px border border-border/60 bg-transparent md:grid-cols-4" style={{opacity:0,transform:"translateY(40px)"}}>
+          <div className="rv mt-24 grid grid-cols-2 gap-px border border-border/60 bg-border/30 md:grid-cols-4" style={{opacity:0,transform:"translateY(40px)"}}>
             {[
               { n: "60s", l: "to first deploy" },
               { n: "77M", l: "Tamils worldwide" },
               { n: "10+", l: "payment methods" },
               { n: "0", l: "lines of code" },
             ].map((s) => (
-              <div key={s.l} className="bg-background/30 backdrop-blur-sm px-6 py-10">
-                <div className="font-display text-[44px] font-extrabold leading-none text-gradient-ember">{s.n}</div>
+              <div key={s.l} className="bg-background px-6 py-10 transition-colors hover:bg-surface/40">
+                <div className="font-display text-[40px] font-extrabold leading-none text-foreground">{s.n}</div>
                 <div className="mt-3 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{s.l}</div>
               </div>
             ))}
@@ -457,7 +457,7 @@ function VegamLanding() {
               <span className="h-px w-6 bg-accent" />World First Template
             </div>
             <h3 className="rv mt-6 font-display text-[clamp(36px,5vw,64px)] font-extrabold leading-[0.95]" style={{opacity:0,transform:"translateX(-40px)"}}>
-              Uyir AI<br /><span className="text-gradient-ember">Memorial</span>
+              Uyir AI<br /><span className="text-accent">Memorial</span>
             </h3>
             <p className="rv mt-6 text-[15px] font-light leading-[1.85] text-muted-foreground" style={{opacity:0,transform:"translateX(-40px)"}}>
               Their voice. Their face. Their stories. Preserved forever. Your family talks to them — in Tamil, in their actual voice, through AI. Built for 77 million Tamil families worldwide.
@@ -585,7 +585,7 @@ function VegamLanding() {
 
           <div className="mt-16 grid grid-cols-1 gap-px bg-border/40 sm:grid-cols-2 lg:grid-cols-5">
             {plans.map((p) => (
-              <div key={p.name} className={`relative flex cursor-hover flex-col p-7 backdrop-blur-md transition-colors ${p.featured ? "bg-surface-elevated/40" : "bg-background/25 hover:bg-surface/40"}`}>
+              <div key={p.name} className={`relative flex cursor-hover flex-col p-7 backdrop-blur-md transition-all ${p.featured ? "z-10 scale-[1.05] bg-surface-elevated/60 shadow-ember ring-1 ring-accent/40 md:scale-[1.08]" : "bg-background/25 hover:bg-surface/40"}`}>
                 {p.featured && <div className="absolute inset-x-0 top-0 bg-gradient-ember py-1.5 text-center text-[9px] font-semibold uppercase tracking-[0.2em] text-accent-foreground">Most Popular</div>}
                 {p.style === "gold" && <div className="mb-3 inline-block w-fit rounded-full border border-gold/40 px-3 py-1 text-[9px] uppercase tracking-[0.2em] text-gold">{p.tier}</div>}
                 <div className={`text-[9px] uppercase tracking-[0.35em] text-muted-foreground ${p.featured ? "mt-6" : ""} ${p.style === "gold" ? "hidden" : ""}`}>{p.tier}</div>
@@ -596,7 +596,7 @@ function VegamLanding() {
                 <div className="my-6 h-px bg-border" />
                 <ul className="flex flex-1 flex-col gap-2.5 text-[12px] text-muted-foreground">
                   {p.feats.flat().map((f) => (
-                    <li key={f} className="flex items-start gap-2.5"><span className="text-accent/60">—</span>{f}</li>
+                    <li key={f} className="flex items-start gap-2.5"><span className="mt-0.5 flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center rounded-full bg-accent/15 text-[9px] text-accent">✓</span>{f}</li>
                   ))}
                 </ul>
                 {p.cta === "Get Started" ? (

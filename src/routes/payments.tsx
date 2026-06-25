@@ -44,7 +44,7 @@ function PaymentsPage() {
         <header className="mb-16 text-center">
           <p className="font-serif-italic text-accent text-lg mb-3">pay your way</p>
           <h1 className="font-display text-5xl md:text-6xl font-semibold tracking-tight text-balance">
-            Payment <span className="text-gradient-ember">Methods</span>
+            Payment <span className="text-accent">Methods</span>
           </h1>
           <p className="mt-5 text-muted-foreground max-w-xl mx-auto text-lg">
             Multiple ways to subscribe to VEGAM — for Malaysia, for the world.

@@ -32,7 +32,7 @@ function AboutPage() {
         <header className="mb-16 text-center">
           <p className="font-serif-italic text-accent text-lg mb-3">who we are</p>
           <h1 className="font-display text-5xl md:text-6xl font-semibold tracking-tight text-balance">
-            KARTS <span className="text-gradient-ember">HOLDING</span>
+            KARTS <span className="text-accent">HOLDING</span>
           </h1>
           <p className="mt-5 text-muted-foreground max-w-xl mx-auto text-lg">
             AI tools built for the Tamil diaspora — by Tamils, for Tamils, and for the world.
