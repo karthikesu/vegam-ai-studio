@@ -103,6 +103,7 @@ function VegamLanding() {
   ]);
   const [paatiInput, setPaatiInput] = useState("");
   const [paatiLoading, setPaatiLoading] = useState(false);
+  const [showDemo, setShowDemo] = useState(false);
 
   const sendPaati = async () => {
     const text = paatiInput.trim();
@@ -301,7 +302,7 @@ function VegamLanding() {
 
         <div className="hero-ctas mt-12 flex flex-wrap items-center justify-center gap-3 opacity-0">
           <a href="https://wa.me/60126466797?text=Hi%20VEGAM%2C%20I%27m%20interested%20in%20starting%20a%20free%20trial" target="_blank" rel="noopener noreferrer" className="rounded-full bg-foreground px-9 py-4 text-[13px] font-medium tracking-wide text-background transition-all hover:scale-[1.04] hover:bg-accent hover:text-accent-foreground">Start Free Trial</a>
-          <button className="rounded-full border border-border-strong px-9 py-4 text-[13px] tracking-wide transition-all hover:scale-[1.04] hover:border-foreground/60">See Live Demo</button>
+          <button onClick={() => setShowDemo(true)} className="rounded-full border border-border-strong px-9 py-4 text-[13px] tracking-wide transition-all hover:scale-[1.04] hover:border-foreground/60">See Live Demo</button>
         </div>
         </div>
 
@@ -344,9 +345,12 @@ function VegamLanding() {
                 loop
                 muted
                 playsInline
-                className="h-[80vh] max-h-[760px] w-full rounded-3xl object-cover"
+                className="h-[80vh] max-h-[760px] w-full object-cover"
                 style={{
-                  filter: "saturate(1.1) contrast(1.03)",
+                  mixBlendMode: "screen",
+                  WebkitMaskImage: "radial-gradient(ellipse 92% 88% at center, #000 60%, transparent 100%)",
+                  maskImage: "radial-gradient(ellipse 92% 88% at center, #000 60%, transparent 100%)",
+                  filter: "saturate(1.15) contrast(1.05)",
                 }}
                 aria-label="VEGAM — floating website panels"
               />
@@ -417,22 +421,6 @@ function VegamLanding() {
                 <div className="mt-3 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{s.l}</div>
               </div>
             ))}
-          </div>
-
-          {/* Live Preview demo clip */}
-          <div className="rv mt-24" style={{opacity:0,transform:"translateY(40px)"}}>
-            <p className="text-[10px] uppercase tracking-[0.25em] text-accent">See it in action</p>
-            <h3 className="mt-3 font-display text-2xl font-extrabold text-foreground">From idea to live site, in seconds.</h3>
-            <div className="relative mt-8 overflow-hidden rounded-3xl border border-border-strong">
-              <video
-                src={builderPreviewVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full object-cover"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -712,6 +700,34 @@ function VegamLanding() {
           </div>
         </div>
       </footer>
+
+      {showDemo && (
+        <div
+          className="fixed inset-0 z-[10000] flex items-center justify-center bg-background/90 backdrop-blur-md p-6"
+          onClick={() => setShowDemo(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl overflow-hidden rounded-3xl border border-border-strong bg-background shadow-soft"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowDemo(false)}
+              aria-label="Close demo"
+              className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-background/80 text-foreground/70 backdrop-blur transition hover:text-foreground"
+            >
+              ✕
+            </button>
+            <video
+              src={builderPreviewVideo}
+              autoPlay
+              loop
+              controls
+              playsInline
+              className="w-full object-cover"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
