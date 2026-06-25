@@ -75,7 +75,7 @@ const marquee = ["⚡ AI Website Builder", "🪔 Uyir AI Memorial", "💬 Sakthi
 
 const showcase = [
   { img: phoneImg, brand: "Uyir AI", sub: "Tamil Memorial Platform", tags: ["Claude AI", "ElevenLabs", "D-ID"], badge: "World First", badge2: "Full Platform — Coming Soon", title: "Uyir AI Memorial", desc: "Try the live demo above — chat with Paati Kamalam right now. The full platform (upload your own family's photos, voice & stories) is still in development.", href: "#paati" },
-  { img: laptopImg, brand: "Irama HK", sub: "Hotel Management System", tags: ["Real-time", "Supabase", "Live"], badge: "Running Live", title: "Irama Housekeeping System", desc: "Full hotel housekeeping ops", href: "https://irama-housekeeping.vercel.app", status: "Live", cta: "View System" },
+  { img: laptopImg, brand: "Irama HK", sub: "Hotel Management System", tags: ["Real-time", "Supabase", "Live"], badge: "Running Live", title: "Irama Housekeeping System", desc: "Full hotel housekeeping ops", href: "https://karthikesu.github.io/Irama/hk-login.html", status: "Live", cta: "View System" },
   { img: tabletImg, brand: "Irama Kiosk", sub: "Cafeteria Feedback System", tags: ["Tablet UI", "Analytics", "QR Codes"], badge: "Running Live", title: "Cafeteria Feedback Kiosk", desc: "Touch-screen satisfaction surveys", href: "https://karthikesu.github.io/Irama/", status: "Live", cta: "View Kiosk" },
 ];
 
